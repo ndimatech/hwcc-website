@@ -19,6 +19,7 @@
   --sand: #F4F0EA;
   --navy: #101B35;
   --maroon: #3A0714;
+  --maroon-deep: #26040C;   /* Leadership + Plan a visit section background */
   --wine: #641C2D;
   --rose: #E9C7CF;
   --accent: #A0495D;
@@ -130,7 +131,7 @@ section[id] { scroll-margin-top: 72px; }
 .sec-paper { background: var(--paper); }
 .sec-sand { background: var(--sand); }
 .sec-navy { background: var(--navy); color: var(--paper); }
-.sec-maroon { background: var(--maroon); color: var(--paper); }
+.sec-maroon { background: var(--maroon-deep); color: var(--paper); }
 
 .split { display: flex; flex-wrap: wrap; gap: 48px clamp(40px, 6vw, 96px); }
 .split > * { flex: 1 1 420px; min-width: 0; }
