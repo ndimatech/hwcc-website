@@ -91,14 +91,17 @@ She can then use the same edit link, and you can see every change she makes in t
 ## Launch day
 
 1. In `_config.yml`, change `preview: true` to `preview: false` (lets Google list the site).
-2. Custom domain (`hiswordchristiancentre.co.za`): Settings → Pages → Custom domain → enter the domain → Save.
+2. Verify the domain first (stops anyone else's GitHub site from claiming it): your GitHub account
+   **Settings → Pages → Add a domain** → enter `hiswordchristiancentre.co.za` → add the TXT record it shows at
+   the domain's DNS provider → **Verify**.
+3. Custom domain (`hiswordchristiancentre.co.za`): Settings → Pages → Custom domain → enter the domain → Save.
    At the domain's DNS provider add:
    - `A` records for the bare domain: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
    - `CNAME` record: `www` → `OWNER.github.io`
 
    **Do not change the MX records.** They deliver the church's email.
-3. When the certificate is ready, tick **Enforce HTTPS** on the Pages settings page.
-4. In `_data/church.yml`, empty fields still show a yellow placeholder. Fill them or remove those
+4. When the certificate is ready, tick **Enforce HTTPS** on the Pages settings page.
+5. In `_data/church.yml`, empty fields still show a yellow placeholder. Fill them or remove those
    items before launch, then delete the `.tbc { … }` rule near the top of `assets/css/style.css`.
 
 ## Changing photos
