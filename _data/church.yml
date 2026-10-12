@@ -1,0 +1,55 @@
+# ─────────────────────────────────────────────────────────────
+#  CHURCH DETAILS — contact, service times, links, next steps, giving
+# ─────────────────────────────────────────────────────────────
+#  Leave a value empty (nothing after the colon) if it isn't known yet.
+#  Empty values show a yellow placeholder; filled values appear on the site.
+# ─────────────────────────────────────────────────────────────
+
+address_line1: 6020 Ramothibe Street
+address_line2: KwaThema, Springs
+
+phone: ""                   # e.g. "011 123 4567" — keep the quotes. Also adds a "Call us" button
+email: admin@hiswordchristiancentre.co.za
+
+# Service times (24-hour). The first service is shown in the main banner.
+# These times also switch the "Watch live" button and red dot on and off.
+services:
+  - name: Sunday Service
+    day: Sunday
+    start: "08:00"
+    end: "10:00"
+  - name: Midweek Service
+    day: Wednesday
+    start: "18:00"
+    end: "19:30"
+
+# "Watch live" goes to livestream during service times, and to youtube otherwise.
+livestream: https://www.facebook.com/share/1YHp29xo8s/
+youtube: https://www.youtube.com/@hiswordchristiancentre
+
+social:
+  instagram: https://www.instagram.com/his_word_christian_centre
+  tiktok: https://www.tiktok.com/@hiswordchristiancentre
+  facebook: https://www.facebook.com/share/1YHp29xo8s/
+  youtube: https://www.youtube.com/@hiswordchristiancentre
+
+# "After Sunday" — one sentence each on what a newcomer should actually do.
+next_steps:
+  - title: Connect
+    text:
+  - title: Grow
+    text:
+  - title: Serve
+    text:
+  - title: Participate
+    text:
+
+# Giving — confirm every value with the treasurer before filling it in.
+# Keep the quotes around numbers, otherwise leading zeros can be lost.
+giving:
+  bank: ""
+  account_name: ""
+  account_number: ""
+  branch_code: ""
+  reference: ""
+  online_link: ""              # e.g. a SnapScan or PayFast link — adds a "Give online" button

@@ -1,0 +1,37 @@
+# ─────────────────────────────────────────────────────────────
+#  MINISTRIES
+# ─────────────────────────────────────────────────────────────
+#  description: 1–2 sentences — who it is for and when it meets.
+#  image:       optional. Upload a portrait photo (about 900×1125) to
+#               assets/img/ and put its path here, e.g.
+#               image: assets/img/ministry-youth.webp
+#  Add, remove or reorder ministries freely; numbering is automatic.
+# ─────────────────────────────────────────────────────────────
+
+- name: Children
+  description:
+  image:
+
+- name: Youth
+  description:
+  image:
+
+- name: Women
+  description:
+  image:
+
+- name: Men
+  description:
+  image:
+
+- name: Worship
+  description:
+  image:
+
+- name: Media
+  description:
+  image:
+
+- name: Outreach
+  description:
+  image:

@@ -1,0 +1,5 @@
+_site/
+.jekyll-cache/
+_preview/
+HWCC-homepage-preview.html
+.DS_Store

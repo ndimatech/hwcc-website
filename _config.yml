@@ -1,0 +1,17 @@
+# His Word Christian Centre website — Jekyll settings for GitHub Pages.
+# Content lives in the _data/ folder. You rarely need to change this file.
+
+title: His Word Christian Centre
+timezone: Africa/Johannesburg
+
+# While true, the site asks search engines NOT to list it.
+# Set to false on launch day.
+preview: true
+
+exclude:
+  - README.md
+  - UPDATING.md
+  - tools
+  - Gemfile
+  - Gemfile.lock
+  - HWCC-homepage-preview.html

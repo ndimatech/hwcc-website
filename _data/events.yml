@@ -1,0 +1,20 @@
+# ─────────────────────────────────────────────────────────────
+#  EVENTS
+# ─────────────────────────────────────────────────────────────
+#  List events in date order (soonest first). The site shows the next 3
+#  upcoming events. Events whose date has passed hide themselves, so you
+#  don't need to delete them straight away (tidy up now and then).
+#
+#  date:  YYYY-MM-DD (required)
+#  time:  in quotes, e.g.  time: "18:00"  (without quotes 18:00 turns into a number)
+#  venue / description:  leave empty if not known yet; they show a
+#         yellow placeholder on the preview.
+#  link:  optional — a poster, booking form or Facebook event link.
+# ─────────────────────────────────────────────────────────────
+
+- name: Carols for a Cause
+  date: 2026-12-24
+  time: ""
+  venue:
+  description: An evening of music, celebration and giving as we come together to make a meaningful difference in the lives of children in our community.
+  link:

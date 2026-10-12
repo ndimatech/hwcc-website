@@ -1,0 +1,45 @@
+# ─────────────────────────────────────────────────────────────
+#  SERMONS  — the file you update every week
+# ─────────────────────────────────────────────────────────────
+#  To add this week's message:
+#    1. Copy the 4 lines of an existing message (from "- title" to "date").
+#    2. Paste them at the TOP of the "messages" list, directly under "messages:".
+#    3. Change the title, speaker, YouTube link and date. Keep the spaces at the
+#       start of each line exactly as they are.
+#    4. Commit. The site updates in about a minute.
+#
+#  The website shows:
+#    - the FEATURED video (below) as the big video, if one is filled in;
+#      if "featured" is left empty, the newest message becomes the big video;
+#    - the next 3 messages underneath as "Recent messages".
+#
+#  "date" is optional. Write it as YYYY-MM-DD, e.g. 2026-10-11.
+#  Any YouTube link works: youtu.be/…, youtube.com/watch?v=…, a /live/ link,
+#  or a playlist link (…playlist?list=…).
+# ─────────────────────────────────────────────────────────────
+
+featured:
+  label: Latest series
+  title: Christ Above Culture
+  subtitle: Sermon series · 3 messages
+  youtube: https://www.youtube.com/playlist?list=PLER3W60qqzuU
+  image: assets/img/sermon-latest.webp   # optional cover picture; delete this line to show the YouTube player directly
+
+# To stop featuring the series and show the newest message instead,
+# replace everything under "featured:" with nothing, so it reads:   featured:
+
+messages:
+  - title: Midwives of Purpose
+    speaker: Ps Sphiwe Magcanya
+    youtube: https://youtu.be/nVqbZUTiN8I
+    date:
+
+  - title: This Hope Will Not Lead to Disappointment
+    speaker: Mrs Mthembu
+    youtube: https://youtu.be/yhyQKOagOZs
+    date:
+
+  - title: Genealogy of Your Promise
+    speaker: Pastor Masango
+    youtube: https://youtu.be/DV4k4y_tDlo
+    date:

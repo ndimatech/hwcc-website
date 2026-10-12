@@ -1,0 +1,415 @@
+---
+# This page is built by GitHub Pages (Jekyll). Its content comes from the files in _data/.
+---
+{%- assign c = site.data.church -%}
+{%- assign sm = site.data.sermons -%}
+{%- assign first_service = c.services | first -%}
+{%- assign tel = c.phone | remove: " " | remove: "-" | remove: "(" | remove: ")" -%}
+{%- assign t0 = tel | slice: 0 -%}
+{%- if t0 == "0" -%}{%- assign tel = tel | remove_first: "0" | prepend: "+27" -%}{%- endif -%}
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>His Word Christian Centre — His Will. His Way. His Word.</title>
+  <meta name="description" content="His Word Christian Centre (HWCC), led by Ps Sphiwe Magcanya. A people being restored, healed and matured through the Word of God. Sundays at 08:00 — plan your visit.">
+  <meta name="theme-color" content="#101B35">
+  {%- if site.preview %}
+  <meta name="robots" content="noindex, nofollow">
+  {%- endif %}
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="His Word Christian Centre">
+  <meta property="og:description" content="A people being restored, healed and matured through the Word of God. Sundays at 08:00.">
+  <meta property="og:image" content="assets/img/hero.webp">
+  <meta property="og:locale" content="en_ZA">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/switzer-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/hero.webp" as="image">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');
+    window.HWCC_SERVICES = [{% for sv in c.services %}{ "day": "{{ sv.day }}", "start": "{{ sv.start }}", "end": "{{ sv.end }}" }{% unless forloop.last %}, {% endunless %}{% endfor %}];</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" data-header>
+  <nav class="nav wrap" aria-label="Primary">
+    <a class="brand" href="#home" aria-label="His Word Christian Centre — home">
+      <span class="brand-mark">HWCC</span>
+      <span class="brand-rule" aria-hidden="true"></span>
+      <span class="brand-name">His Word<br>Christian Centre</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#sermons">Sermons</a></li>
+      <li><a href="#ministries">Ministries</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#give">Give</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="live" href="{{ c.youtube }}" target="_blank" rel="noopener" data-live data-live-href="{{ c.livestream }}" data-online-href="{{ c.youtube }}"><span class="dot" aria-hidden="true"></span><span data-live-label>Watch online</span></a>
+      <a class="btn btn-nav" href="#visit">Plan a visit</a>
+    </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-open>
+      Menu <span class="burger" aria-hidden="true"><span></span><span></span></span>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+  <div class="mm-top">
+    <span class="brand-mark">HWCC</span>
+    <button type="button" class="mm-close" data-menu-close>Close</button>
+  </div>
+  <ul class="mm-links">
+    <li><a href="#home"><span>01</span>Home</a></li>
+    <li><a href="#about"><span>02</span>About</a></li>
+    <li><a href="#sermons"><span>03</span>Sermons</a></li>
+    <li><a href="#ministries"><span>04</span>Ministries</a></li>
+    <li><a href="#events"><span>05</span>Events</a></li>
+    <li><a href="#give"><span>06</span>Give</a></li>
+  </ul>
+  <div class="mm-foot">
+    <a class="btn btn-light" href="#visit">Plan a visit</a>
+    <a class="live" href="{{ c.youtube }}" target="_blank" rel="noopener" data-live data-live-href="{{ c.livestream }}" data-online-href="{{ c.youtube }}"><span class="dot" aria-hidden="true"></span><span data-live-label>Watch online</span></a>
+    <p>{% for sv in c.services %}{{ sv.day }}s · {{ sv.start }} – {{ sv.end }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ================= 01 HERO ================= -->
+<section class="hero" id="home" aria-labelledby="hero-h">
+  <div class="hero-media" aria-hidden="true">
+    <!-- TBC: replace with an original, high-resolution photo (min. 2400px wide, no watermark) -->
+    <img src="assets/img/hero.webp" alt="" width="1040" height="630" fetchpriority="high" data-hero-img>
+  </div>
+  <div class="hero-body wrap">
+    <div class="hero-text">
+      <h1 id="hero-h">
+        <span class="line"><span data-reveal="line" style="--d:300ms">His Will.</span></span>
+        <span class="line"><span data-reveal="line" style="--d:440ms">His Way.</span></span>
+        <span class="line"><span data-reveal="line" style="--d:580ms">His <em>Word.</em></span></span>
+      </h1>
+      <p class="hero-sub" data-reveal style="--d:750ms">A people being restored, healed and matured through the Word of God.</p>
+    </div>
+    <div class="hero-aside" data-reveal style="--d:900ms">
+      <div class="hero-ctas">
+        <a class="btn btn-light" href="#visit">Plan a visit</a>
+        <a class="link-line link-light" href="#sermons">Watch online</a>
+      </div>
+      <p class="hero-times">{{ first_service.day }}s · {{ first_service.start }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 WELCOME ================= -->
+<section class="sec sec-paper" id="welcome" aria-labelledby="welcome-h">
+  <div class="wrap split split-center">
+    <div class="stack" data-reveal>
+      <p class="eyebrow">01 · Welcome to HWCC</p>
+      <h2 id="welcome-h" class="h2 h2-welcome">We are becoming the people God has called us to be.</h2>
+      <p class="lead">His Word Christian Centre is a Christ-centred community committed to the Word of God, spiritual growth and authentic Christian living.</p>
+      <p class="lead">We believe faith should shape not only what we believe, but how we live, love, serve and grow.</p>
+    </div>
+    <figure class="photo photo-square" data-reveal="img">
+      <img src="assets/img/welcome.webp" alt="A congregant reading her Bible during a service" width="641" height="960" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<!-- ================= 03 SEASON ================= -->
+<section class="sec sec-navy season" aria-labelledby="season-h">
+  <div class="wrap rail">
+    <p class="eyebrow eyebrow-sand rail-label" id="season-h">02 · This season</p>
+    <div class="rail-body">
+      <ol class="season-list" aria-label="Restored. Healed. Matured.">
+        <li><span class="rule" data-reveal="rule"></span><span class="word" data-reveal style="--d:150ms">Restored.</span><span class="note" data-reveal style="--d:150ms">A season of restoration.</span></li>
+        <li><span class="rule" data-reveal="rule" style="--d:250ms"></span><span class="word" data-reveal style="--d:400ms">Healed.</span><span class="note" data-reveal style="--d:400ms">A season of healing.</span></li>
+        <li><span class="rule" data-reveal="rule" style="--d:500ms"></span><span class="word" data-reveal style="--d:650ms">Matured.</span><span class="note" data-reveal style="--d:650ms">A season of becoming.</span></li>
+      </ol>
+      <div class="season-end"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 SERMONS ================= -->
+<section class="sec sec-paper" id="sermons" aria-labelledby="word-h">
+  <div class="wrap">
+    <div class="rail rail-head">
+      <p class="eyebrow rail-label">03 · Sermons</p>
+      <div class="rail-body head-row">
+        <h2 id="word-h" class="h2" data-reveal>The Word</h2>
+        <p class="muted max-38">Messages to help you know the Word, live the Word and become transformed by the Word.</p>
+      </div>
+    </div>
+
+    {%- if sm.featured and sm.featured.youtube and sm.featured.youtube != "" -%}
+      {%- assign feat = sm.featured -%}{%- assign recent_from = 0 -%}
+    {%- else -%}
+      {%- assign feat = sm.messages | first -%}{%- assign recent_from = 1 -%}
+    {%- endif -%}
+    {%- assign u = feat.youtube | strip -%}
+    {%- if u contains "list=" -%}
+      {%- assign yid = u | split: "list=" | last | split: "&" | first -%}
+      {%- assign embed = "https://www.youtube-nocookie.com/embed/videoseries?list=" | append: yid -%}
+    {%- elsif u contains "youtu.be/" -%}
+      {%- assign yid = u | split: "youtu.be/" | last | split: "?" | first -%}
+      {%- assign embed = "https://www.youtube-nocookie.com/embed/" | append: yid -%}
+    {%- elsif u contains "v=" -%}
+      {%- assign yid = u | split: "v=" | last | split: "&" | first -%}
+      {%- assign embed = "https://www.youtube-nocookie.com/embed/" | append: yid -%}
+    {%- else -%}
+      {%- assign yid = u | split: "?" | first | split: "/" | last -%}
+      {%- assign embed = "https://www.youtube-nocookie.com/embed/" | append: yid -%}
+    {%- endif %}
+    <article aria-labelledby="latest-h">
+      {%- if feat.image and feat.image != "" %}
+      <div class="media-frame video-facade" data-reveal="img" data-embed="{{ embed }}{% if embed contains '?' %}&amp;{% else %}?{% endif %}autoplay=1" data-watch="{{ u }}">
+        <img src="{{ feat.image }}" alt="" loading="lazy" style="object-position:50% 26%">
+        <button type="button" class="play" aria-label="Play {{ feat.title | escape }}"><span class="play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>{% if u contains "list=" %}Play series{% else %}Play message{% endif %}</button>
+      </div>
+      {%- else %}
+      <div class="media-frame" data-reveal="img">
+        <iframe src="{{ embed }}" title="{{ feat.title | escape }}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      {%- endif %}
+      <div class="rail latest-meta">
+        <p class="eyebrow eyebrow-grey rail-label">{% if feat.label and feat.label != "" %}{{ feat.label }}{% else %}Latest message{% endif %}</p>
+        <div class="rail-body head-row">
+          <div class="stack-sm">
+            <h3 id="latest-h" class="h3">{{ feat.title }}</h3>
+            <p class="small muted">{% if feat.subtitle and feat.subtitle != "" %}{{ feat.subtitle }}{% else %}{{ feat.speaker }}{% if feat.date %} · {{ feat.date | date: "%-d %B %Y" }}{% endif %}{% endif %}</p>
+          </div>
+          <a class="btn btn-outline" href="{{ u }}" target="_blank" rel="noopener">{% if u contains "list=" %}Watch the series{% else %}Watch on YouTube{% endif %} →</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="rail recent">
+      <div class="rail-label"><p class="eyebrow eyebrow-grey">Recent messages</p></div>
+      <div class="rail-body">
+        <ul class="recent-list">
+          {%- for m in sm.messages limit: 3 offset: recent_from %}
+          <li><a href="{{ m.youtube | strip }}" target="_blank" rel="noopener">{% if m.date %}<span class="r-date">{{ m.date | date: "%-d %b %Y" }}</span>{% endif %}<span class="r-title">{{ m.title }}</span><span class="r-by">{{ m.speaker }}</span></a></li>
+          {%- endfor %}
+        </ul>
+        <a class="link-line" href="{{ c.youtube }}" target="_blank" rel="noopener">View all messages on YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 PASTOR ================= -->
+<section class="sec sec-maroon" id="about" aria-labelledby="pastor-h">
+  <div class="wrap pastor">
+    <figure class="photo photo-portrait" data-reveal="img">
+      <img src="assets/img/pastor.webp" alt="Ps Sphiwe Magcanya preaching" width="626" height="938" loading="lazy">
+    </figure>
+    <div class="pastor-text stack">
+      <p class="eyebrow eyebrow-rose">04 · Leadership</p>
+      <div>
+        <h2 id="pastor-h" class="h2 on-dark" data-reveal>Ps Sphiwe Magcanya</h2>
+        <p class="role">Founder</p>
+      </div>
+      <p class="quote">His Word Christian Centre exists to build a people who know God's Word, understand His will and live according to His ways.</p>
+      <p class="body-dark">Pastor Sphiwe Magcanya is the founding pastor of His Word Christian Centre, a vibrant ministry committed to lifting Jesus up through the reading, teaching, and living of His Word. He is a passionate preacher, teacher, pastor, chaplain, qualified Marriage Officer, and Commissioner of Oaths, with a strong heart for developing people, strengthening families, and building healthy, Christ-centred communities.</p>
+      <p class="body-dark">Known for his practical, thought-provoking approach to Scripture, Pastor Sphiwe combines sound biblical teaching with a contemporary perspective on faith, leadership, relationships, and everyday life. His ministry carries a particular emphasis on seeing people restored, healed, and matured in Christ. His life and ministry are anchored in this simple conviction: His Will. His Way. His Word.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06 MINISTRIES ================= -->
+<section class="sec sec-navy" id="ministries" aria-labelledby="ministries-h">
+  <div class="wrap ministries">
+    <div class="min-list-col">
+      <p class="eyebrow eyebrow-sand">05 · Ministries</p>
+      <h2 id="ministries-h" class="h2 on-dark" data-reveal>Find your place.</h2>
+      <p class="tagline">There is room for you here.</p>
+      <ul class="min-list" data-ministries>
+        {%- for m in site.data.ministries %}
+        <li data-img="{{ m.image }}" data-name="{{ m.name | escape }}"><span class="n">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="t">{{ m.name }}</span>{% if m.description and m.description != "" %}<span class="d">{{ m.description }}</span>{% else %}<span class="d tbc">[MINISTRY DESCRIPTION]</span>{% endif %}<span class="bar" aria-hidden="true"></span></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <figure class="min-panel" aria-hidden="true">
+      <div class="min-frame" data-min-frame>
+        <img alt="" data-min-img hidden>
+        <span class="min-fallback" data-min-fallback><span class="min-fb-n">01</span><span class="min-fb-t"></span></span>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= 07 EVENTS ================= -->
+<section class="sec sec-paper" id="events" aria-labelledby="events-h">
+  <div class="wrap">
+    <div class="rail rail-head">
+      <p class="eyebrow rail-label">06 · Events</p>
+      <div class="rail-body head-row">
+        <h2 id="events-h" class="h2" data-reveal>What's happening</h2>
+      </div>
+    </div>
+    {%- assign today = site.time | date: "%Y-%m-%d" -%}
+    {%- assign shown = 0 %}
+    <ul class="events" data-events>
+      {%- for e in site.data.events -%}
+      {%- assign d = e.date | date: "%Y-%m-%d" -%}
+      {%- if d >= today and shown < 3 -%}
+      {%- assign shown = shown | plus: 1 %}
+      <li data-reveal data-date="{{ d }}">
+        <p class="ev-date">{{ e.date | date: "%-d %B" }}</p>
+        <div class="ev-main">
+          <h3 class="h3">{{ e.name }}</h3>
+          {%- if e.description and e.description != "" %}
+          <p class="muted">{{ e.description }}</p>
+          {%- else %}
+          <p class="muted"><span class="tbc">[EVENT DESCRIPTION]</span></p>
+          {%- endif %}
+          {%- if e.link and e.link != "" %}
+          <a class="link-line" href="{{ e.link }}" target="_blank" rel="noopener">More info →</a>
+          {%- endif %}
+        </div>
+        <p class="ev-where">{% if e.venue and e.venue != "" %}{{ e.venue }}{% else %}<span class="tbc">[VENUE]</span>{% endif %}<br>{% if e.time and e.time != "" %}{{ e.time }}{% else %}<span class="tbc">[TIME]</span>{% endif %}</p>
+      </li>
+      {%- endif -%}
+      {%- endfor %}
+    </ul>
+    <p class="ev-empty muted" data-events-empty{% if shown > 0 %} hidden{% endif %}>No upcoming events right now. Follow us on <a href="{{ c.social.facebook }}" target="_blank" rel="noopener">Facebook</a> for news.</p>
+  </div>
+</section>
+
+<!-- ================= 08 VISIT ================= -->
+<section class="sec sec-maroon" id="visit" aria-labelledby="visit-h">
+  <div class="wrap">
+    <div class="rail rail-head">
+      <p class="eyebrow eyebrow-rose rail-label">07 · Plan a visit</p>
+      <h2 id="visit-h" class="h2 on-dark rail-body" data-reveal>Come as you are.<br><em>Leave with something to carry.</em></h2>
+    </div>
+    <div class="visit">
+      <div class="photo visit-media" data-reveal="img">
+        <img src="assets/img/visit.webp" alt="A congregant taking notes during a service" width="854" height="1068" loading="lazy">
+      </div>
+      <div class="visit-info">
+        <dl class="facts">
+          {%- for sv in c.services %}
+          <div><dt>{{ sv.name }}{% if sv.day != "Sunday" %} · {{ sv.day }}{% endif %}</dt><dd class="big">{{ sv.start }} – {{ sv.end }}</dd></div>
+          {%- endfor %}
+          <div><dt>Address</dt><dd>{{ c.address_line1 }}, {{ c.address_line2 }}</dd></div>
+          <div class="block"><dt>What to expect</dt><dd>From the moment you arrive, our welcoming team will be there to greet you and help you feel at home. Our service runs from 08:00 to 10:00, and we encourage you to come as you are — there’s no special dress code, just come ready to worship! We welcome visitors from all backgrounds, and our team will gladly assist you with information about the languages used during the service, children’s church, and wheelchair access. We look forward to meeting you and making your first visit a memorable one!</dd></div>
+          <div><dt>Contact</dt><dd>{% if tel != "" %}<a class="dd-link" href="tel:{{ tel }}">{{ c.phone }}</a>{% else %}<span class="tbc">[PHONE NUMBER]</span>{% endif %} · <a class="dd-link" href="mailto:{{ c.email }}">{{ c.email | replace: "@", "@<wbr>" }}</a></dd></div>
+        </dl>
+        <div class="visit-ctas">
+          <a class="btn btn-light" href="mailto:{{ c.email }}">Email us</a>
+          {%- if tel != "" %}
+          <a class="link-line link-light" href="tel:{{ tel }}">Call us</a>
+          {%- endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 09 BELONG ================= -->
+<section class="sec sec-paper" id="belong" aria-labelledby="belong-h">
+  <div class="wrap rail">
+    <p class="eyebrow rail-label">08 · Belong</p>
+    <div class="rail-body">
+      <h2 id="belong-h" class="h2" data-reveal>After Sunday</h2>
+      <ol class="steps">
+        {%- for st in c.next_steps %}
+        <li data-reveal style="--d:{{ forloop.index0 | times: 100 }}ms"><span class="n">0{{ forloop.index }}</span><span><span class="t">{{ st.title }}</span>{% if st.text and st.text != "" %}<span class="d">{{ st.text }}</span>{% else %}<span class="d tbc">[{{ st.title | upcase }} — NEXT STEP]</span>{% endif %}</span></li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 10 GIVE ================= -->
+<section class="sec sec-sand" id="give" aria-labelledby="give-h">
+  <div class="wrap rail">
+    <p class="eyebrow rail-label">09 · Giving</p>
+    <div class="rail-body give">
+      <div class="stack">
+        <h2 id="give-h" class="h2" data-reveal>Give with purpose.</h2>
+        <p class="muted max-42">Your generosity helps us serve our church, our community and the people God has entrusted to us.</p>
+        {%- if c.giving.online_link and c.giving.online_link != "" %}
+        <a class="btn btn-outline" href="{{ c.giving.online_link }}" target="_blank" rel="noopener">Give online</a>
+        {%- endif %}
+      </div>
+      <div class="eft">
+        <p class="eyebrow eyebrow-grey">EFT details</p>
+        <dl>
+          <dt>Bank</dt><dd>{% if c.giving.bank and c.giving.bank != "" %}{{ c.giving.bank }}{% else %}<span class="tbc">[BANK NAME]</span>{% endif %}</dd>
+          <dt>Account name</dt><dd>{% if c.giving.account_name and c.giving.account_name != "" %}{{ c.giving.account_name }}{% else %}<span class="tbc">[ACCOUNT NAME]</span>{% endif %}</dd>
+          <dt>Account no.</dt><dd>{% if c.giving.account_number and c.giving.account_number != "" %}{{ c.giving.account_number }}{% else %}<span class="tbc">[ACCOUNT NUMBER]</span>{% endif %}</dd>
+          <dt>Branch code</dt><dd>{% if c.giving.branch_code and c.giving.branch_code != "" %}{{ c.giving.branch_code }}{% else %}<span class="tbc">[BRANCH CODE]</span>{% endif %}</dd>
+          <dt>Reference</dt><dd>{% if c.giving.reference and c.giving.reference != "" %}{{ c.giving.reference }}{% else %}<span class="tbc">[GIVING REFERENCE]</span>{% endif %}</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="foot-motto" aria-label="His Will. His Way. His Word.">
+      <span aria-hidden="true">His Will.</span>
+      <span aria-hidden="true">His Way.</span>
+      <span aria-hidden="true">His <em>Word.</em></span>
+    </p>
+    <div class="foot-grid">
+      <div>
+        <p class="foot-name">His Word<br>Christian Centre</p>
+        <p class="foot-small">A people being restored, healed and matured.</p>
+      </div>
+      <div>
+        <p class="foot-h">Services</p>
+        {%- for sv in c.services %}
+        <p>{{ sv.name }}<br><span class="dim">{% if sv.day != "Sunday" %}{{ sv.day }} · {% endif %}{{ sv.start }} – {{ sv.end }}</span></p>
+        {%- endfor %}
+      </div>
+      <nav aria-label="Footer">
+        <p class="foot-h">Explore</p>
+        <a href="#about">About</a>
+        <a href="#sermons">Sermons</a>
+        <a href="#ministries">Ministries</a>
+        <a href="#events">Events</a>
+        <a href="#give">Give</a>
+        <a href="#visit">Plan a visit</a>
+      </nav>
+      <div>
+        <p class="foot-h">Contact</p>
+        <p>{{ c.address_line1 }}<br>{{ c.address_line2 }}<br>{% if tel != "" %}<a href="tel:{{ tel }}">{{ c.phone }}</a>{% else %}<span class="tbc">[PHONE NUMBER]</span>{% endif %}<br><a href="mailto:{{ c.email }}">{{ c.email | replace: "@", "@<wbr>" }}</a></p>
+      </div>
+      <div>
+        <p class="foot-h">Follow</p>
+        <div class="socials">
+          <a href="{{ c.social.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a href="{{ c.social.tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+          <a href="{{ c.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+          <a href="{{ c.social.youtube }}" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© <span data-year>2026</span> His Word Christian Centre</span>
+      <span>His Will. His Way. His Word.</span>
+      <span class="foot-credit">Website by <a href="https://ndimatech.co.za" target="_blank" rel="noopener">Ndimatech</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
