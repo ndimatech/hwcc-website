@@ -22,12 +22,36 @@
   <meta name="robots" content="noindex, nofollow">
   {%- endif %}
 
+  <link rel="canonical" href="https://hiswordchristiancentre.co.za/">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hiswordchristiancentre.co.za/">
   <meta property="og:title" content="His Word Christian Centre">
   <meta property="og:description" content="A people being restored, healed and matured through the Word of God. Sundays at 08:00.">
-  <meta property="og:image" content="assets/img/hero.webp">
+  <meta property="og:image" content="https://hiswordchristiancentre.co.za/assets/img/hero.webp">
   <meta property="og:locale" content="en_ZA">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Church",
+    "name": "His Word Christian Centre",
+    "alternateName": "HWCC",
+    "url": "https://hiswordchristiancentre.co.za/",
+    "image": "https://hiswordchristiancentre.co.za/assets/img/hero.webp",
+    "slogan": "His Will. His Way. His Word.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ c.address_line1 }}",
+      "addressLocality": "{{ c.address_line2 }}",
+      "addressCountry": "ZA"
+    },
+    {%- if tel != "" %}
+    "telephone": "{{ tel }}",
+    {%- endif %}
+    "email": "{{ c.email }}",
+    "sameAs": [{% for s in c.social %}"{{ s[1] }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]
+  }
+  </script>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/switzer-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>

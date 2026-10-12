@@ -90,7 +90,7 @@ She can then use the same edit link, and you can see every change she makes in t
 
 ## Launch day
 
-_Domain connected and HTTPS enforced on 12 Oct 2026. Remaining: steps 1, 2 and 5._
+_Launched 12 Oct 2026: domain connected, HTTPS enforced, all placeholders filled, Google listing on. Remaining: step 2 (domain verification)._
 
 1. In `_config.yml`, change `preview: true` to `preview: false` (lets Google list the site).
 2. Verify the domain first (stops anyone else's GitHub site from claiming it): your GitHub account

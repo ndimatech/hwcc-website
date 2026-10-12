@@ -21,7 +21,8 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   and grep the output. Template features must stay within Liquid 4 / Jekyll 3.10 as used by GitHub Pages
   (no includes with Jekyll-only syntax unless verified on Pages).
 - After pushing, confirm the Pages build succeeded.
-- `preview: true` in `_config.yml` adds noindex. Set it to false only on launch.
+- Launched 12 Oct 2026: `preview: false` (indexable). Setting it back to true adds noindex.
+- SEO bits in index.html head: canonical, absolute og:url/og:image, Church JSON-LD built from church.yml. robots.txt + sitemap.xml at root.
 
 ## Domain / DNS (domains.co.za customer portal)
 - Website: 4 A records on the bare domain → 185.199.108–111.153; `www` CNAME → ndimatech.github.io.
