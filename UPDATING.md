@@ -90,6 +90,8 @@ She can then use the same edit link, and you can see every change she makes in t
 
 ## Launch day
 
+_Domain connected and HTTPS enforced on 12 Oct 2026. Remaining: steps 1, 2 and 5._
+
 1. In `_config.yml`, change `preview: true` to `preview: false` (lets Google list the site).
 2. Verify the domain first (stops anyone else's GitHub site from claiming it): your GitHub account
    **Settings → Pages → Add a domain** → enter `hiswordchristiancentre.co.za` → add the TXT record it shows at

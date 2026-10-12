@@ -1,6 +1,8 @@
 # HWCC website: notes for Claude
 
 One-page Jekyll site for His Word Christian Centre (KwaThema), hosted on GitHub Pages from `main`.
+Live at https://hiswordchristiancentre.co.za (custom domain via the CNAME file; HTTPS enforced). Verify changes in the
+user's Chrome (the sandbox network can't reach the site).
 Built and maintained by Ndimatech (Mubarak). Content lives in `_data/*.yml`; `index.html` is the Liquid template.
 UPDATING.md is the human guide. Keep it in step with any change to the data format.
 
@@ -20,3 +22,9 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   (no includes with Jekyll-only syntax unless verified on Pages).
 - After pushing, confirm the Pages build succeeded.
 - `preview: true` in `_config.yml` adds noindex. Set it to false only on launch.
+
+## Domain / DNS (domains.co.za customer portal)
+- Website: 4 A records on the bare domain → 185.199.108–111.153; `www` CNAME → ndimatech.github.io.
+- Email is separate and must not be touched: MX → mx1.tld-mx.com; `mail` A → 169.239.218.79 (cPanel cp79);
+  imap/pop/smtp/webmail/cpcalendars/cpcontacts CNAME → mail; SPF `v=spf1 +a:mail… +mx include:_spf.tld-mx.com ~all`.
+- Rollback: bare-domain A → 169.239.219.58 (old hosting), `www` CNAME → hiswordchristiancentre.co.za.
