@@ -132,7 +132,7 @@
         <a class="btn btn-light" href="#visit">Plan a visit</a>
         <a class="link-line link-light" href="#sermons">Watch online</a>
       </div>
-      <p class="hero-times">{{ first_service.day }}s · {{ first_service.start }}</p>
+      <p class="hero-times">{% for sv in c.services %}{{ sv.day }} · {{ sv.start }} – {{ sv.end }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p>
     </div>
   </div>
 </section>

@@ -22,7 +22,7 @@ services:
   - name: Midweek Service
     day: Wednesday
     start: "18:00"
-    end: "19:30"
+    end: "20:00"
 
 # "Watch live" goes to livestream during service times, and to youtube otherwise.
 livestream: https://www.facebook.com/share/1YHp29xo8s/
