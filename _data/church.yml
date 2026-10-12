@@ -37,20 +37,20 @@ social:
 # "After Sunday" — one sentence each on what a newcomer should actually do.
 next_steps:
   - title: Connect
-    text:
+    text: "Say hello to our welcome team after the service, or WhatsApp us on 063 442 2081 and we'll get in touch."
   - title: Grow
-    text:
+    text: "Join us on Wednesdays at 18:00 for our midweek service and go deeper into the Word."
   - title: Serve
-    text:
+    text: "Find your place in one of our ministries. Speak to a ministry leader or our welcome team to get involved."
   - title: Participate
-    text:
+    text: "Be part of church life through our events and outreach. See \"What's happening\" for what's coming up."
 
-# Giving — confirm every value with the treasurer before filling it in.
+# Giving — confirmed by the treasurer (Oct 2026). Re-confirm before changing.
 # Keep the quotes around numbers, otherwise leading zeros can be lost.
 giving:
   bank: "First National Bank (FNB)"
-  account_name: ""
+  account_name: "His Word Christian Centre"
   account_number: "63090454801"
   branch_code: "250655"
-  reference: ""
+  reference: ""                # leave empty to hide the Reference line
   online_link: ""              # e.g. a SnapScan or PayFast link — adds a "Give online" button

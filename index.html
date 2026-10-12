@@ -357,7 +357,7 @@
           <dt>Account name</dt><dd>{% if c.giving.account_name and c.giving.account_name != "" %}{{ c.giving.account_name }}{% else %}<span class="tbc">[ACCOUNT NAME]</span>{% endif %}</dd>
           <dt>Account no.</dt><dd>{% if c.giving.account_number and c.giving.account_number != "" %}{{ c.giving.account_number }}{% else %}<span class="tbc">[ACCOUNT NUMBER]</span>{% endif %}</dd>
           <dt>Branch code</dt><dd>{% if c.giving.branch_code and c.giving.branch_code != "" %}{{ c.giving.branch_code }}{% else %}<span class="tbc">[BRANCH CODE]</span>{% endif %}</dd>
-          <dt>Reference</dt><dd>{% if c.giving.reference and c.giving.reference != "" %}{{ c.giving.reference }}{% else %}<span class="tbc">[GIVING REFERENCE]</span>{% endif %}</dd>
+          {% if c.giving.reference and c.giving.reference != "" %}<dt>Reference</dt><dd>{% if c.giving.reference and c.giving.reference != "" %}{{ c.giving.reference }}{% else %}<span class="tbc">[GIVING REFERENCE]</span>{% endif %}</dd>{% endif %}
         </dl>
       </div>
     </div>
