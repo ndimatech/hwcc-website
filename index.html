@@ -7,6 +7,9 @@
 {%- assign tel = c.phone | remove: " " | remove: "-" | remove: "(" | remove: ")" -%}
 {%- assign t0 = tel | slice: 0 -%}
 {%- if t0 == "0" -%}{%- assign tel = tel | remove_first: "0" | prepend: "+27" -%}{%- endif -%}
+{%- assign wa = c.whatsapp | remove: " " | remove: "-" | remove: "(" | remove: ")" | remove: "+" -%}
+{%- assign w0 = wa | slice: 0 -%}
+{%- if w0 == "0" -%}{%- assign wa = wa | remove_first: "0" | prepend: "27" -%}{%- endif -%}
 <!doctype html>
 <html lang="en-ZA">
 <head>
@@ -235,7 +238,7 @@
       <p class="tagline">There is room for you here.</p>
       <ul class="min-list" data-ministries>
         {%- for m in site.data.ministries %}
-        <li data-img="{{ m.image }}" data-name="{{ m.name | escape }}"><span class="n">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="t">{{ m.name }}</span>{% if m.description and m.description != "" %}<span class="d">{{ m.description }}</span>{% else %}<span class="d tbc">[MINISTRY DESCRIPTION]</span>{% endif %}<span class="bar" aria-hidden="true"></span></li>
+        <li data-img="{{ m.image }}" data-name="{{ m.name | escape }}"><span class="n">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="t">{{ m.name }}</span>{% if m.description and m.description != "" %}<span class="d">{% if m.tagline and m.tagline != "" %}<em class="tg">{{ m.tagline }}</em> {% endif %}{{ m.description }}</span>{% else %}<span class="d tbc">[MINISTRY DESCRIPTION]</span>{% endif %}<span class="bar" aria-hidden="true"></span></li>
         {%- endfor %}
       </ul>
     </div>
@@ -310,6 +313,9 @@
           <a class="btn btn-light" href="mailto:{{ c.email }}">Email us</a>
           {%- if tel != "" %}
           <a class="link-line link-light" href="tel:{{ tel }}">Call us</a>
+          {%- endif %}
+          {%- if wa != "" %}
+          <a class="link-line link-light" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener">WhatsApp us</a>
           {%- endif %}
         </div>
       </div>

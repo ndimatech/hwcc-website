@@ -1,6 +1,7 @@
 # ─────────────────────────────────────────────────────────────
 #  MINISTRIES
 # ─────────────────────────────────────────────────────────────
+#  tagline:     short phrase shown first (optional).
 #  description: 1–2 sentences — who it is for and when it meets.
 #  image:       optional. Upload a portrait photo (about 900×1125) to
 #               assets/img/ and put its path here, e.g.
@@ -9,29 +10,36 @@
 # ─────────────────────────────────────────────────────────────
 
 - name: Children
-  description:
+  tagline: "Little hearts, big faith."
+  description: "Helping children discover God’s love and build their lives on His Word."
   image:
 
 - name: Youth
-  description:
+  tagline: "Faith for today, purpose for tomorrow."
+  description: "Raising young people who stand firm in the Word and walk boldly in His ways."
   image:
 
 - name: Women
-  description:
+  tagline: "Growing together, stronger in faith."
+  description: "A space for women to connect, be refreshed and grow into all God has called them to be."
   image:
 
 - name: Men
-  description:
+  tagline: "Grounded in the Word, built for purpose."
+  description: "Equipping men to lead, serve and live out their faith with conviction."
   image:
 
 - name: Worship
-  description:
+  tagline: "More than music, it’s ministry."
+  description: "Creating an atmosphere where hearts turn to God and lives respond to His presence."
   image:
 
 - name: Media
-  description:
+  tagline: "The message, beyond the walls."
+  description: "Using creativity and technology to share His Word and reach people wherever they are."
   image:
 
 - name: Outreach
-  description:
+  tagline: "Faith in action."
+  description: "Taking the love of Christ beyond our church and making a difference in the lives of others."
   image:

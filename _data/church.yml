@@ -8,7 +8,8 @@
 address_line1: 6020 Ramothibe Street
 address_line2: KwaThema, Springs
 
-phone: ""                   # e.g. "011 123 4567" — keep the quotes. Also adds a "Call us" button
+phone: "063 442 2081"       # keep the quotes. Also adds a "Call us" button
+whatsapp: "063 442 2081"    # leave "" if the number is not on WhatsApp. Adds a "WhatsApp us" link
 email: admin@hiswordchristiancentre.co.za
 
 # Service times (24-hour). The first service is shown in the main banner.
@@ -47,9 +48,9 @@ next_steps:
 # Giving — confirm every value with the treasurer before filling it in.
 # Keep the quotes around numbers, otherwise leading zeros can be lost.
 giving:
-  bank: ""
+  bank: "First National Bank (FNB)"
   account_name: ""
-  account_number: ""
-  branch_code: ""
+  account_number: "63090454801"
+  branch_code: "250655"
   reference: ""
   online_link: ""              # e.g. a SnapScan or PayFast link — adds a "Give online" button
