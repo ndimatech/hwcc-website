@@ -121,7 +121,6 @@ section[id] { scroll-margin-top: 72px; }
 .mm-close { background: none; border: 0; color: var(--paper); font: 500 12px/1 var(--text); letter-spacing: .14em; text-transform: uppercase; padding: 12px 0; cursor: pointer; }
 .mm-links { list-style: none; margin: 24px 0 auto; padding: 0; }
 .mm-links a { display: flex; align-items: baseline; gap: 18px; padding: 12px 0; color: var(--paper); text-decoration: none; font-family: var(--display); font-weight: 600; font-size: clamp(32px, 9vw, 48px); line-height: 1.1; letter-spacing: -.02em; }
-.mm-links a span { font: 400 11px var(--text); color: var(--rose); letter-spacing: .1em; }
 .mm-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; padding-top: 28px; border-top: 1px solid var(--line-dark); margin-top: 32px; }
 .mm-foot .live { color: var(--paper); }
 .mm-foot p { width: 100%; font-size: 13px; color: rgba(253,253,252,.75); }
