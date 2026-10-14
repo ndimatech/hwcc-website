@@ -315,4 +315,8 @@ section[id] { scroll-margin-top: 72px; }
 .verse { margin: 16px 0 0; padding-left: 14px; border-left: 2px solid var(--accent); }
 .verse p { font-style: italic; color: var(--muted); font-size: 15px; line-height: 1.7; margin: 0; }
 .verse cite { display: block; margin-top: 6px; font: 600 11px/1 var(--text); font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: var(--navy); }
+.vm-main { grid-template-columns: 1fr; gap: 44px; margin-top: 8px; padding-top: 0; border-top: 0; max-width: 40ch; }
+.vm-main .vm-text { font-size: clamp(26px, 2.6vw, 38px); line-height: 1.2; letter-spacing: -.02em; }
+.vm-main .verse p { font-size: 16px; }
 @media (max-width: 640px) { .vm { grid-template-columns: 1fr; gap: 24px; } }
+@media (max-width: 640px) { .vm-main { gap: 40px; } }
