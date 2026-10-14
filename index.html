@@ -70,7 +70,7 @@
     <a class="brand" href="#home" aria-label="His Word Christian Centre — home">
       <span class="brand-mark">HWCC</span>
       <span class="brand-rule" aria-hidden="true"></span>
-      <span class="brand-name">His Word<br>Christian Centre</span>
+      <img class="brand-logo" src="assets/img/banner.webp" alt="" width="920" height="214">
     </a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
@@ -145,6 +145,17 @@
       <h2 id="welcome-h" class="h2 h2-welcome">We are becoming the people God has called us to be.</h2>
       <p class="lead">His Word Christian Centre is a Christ-centred community committed to the Word of God, spiritual growth and authentic Christian living.</p>
       <p class="lead">We believe faith should shape not only what we believe, but how we live, love, serve and grow.</p>
+      <div class="vm">
+        <div class="vm-item">
+          <p class="vm-label">Our vision</p>
+          <p class="vm-text">We are called to lift Jesus up by the reading, teaching and living of His Word.</p>
+          <blockquote class="verse"><p>“And I, when I am lifted up from the earth, will draw all people to myself.”</p><cite>John 12:32</cite></blockquote>
+        </div>
+        <div class="vm-item">
+          <p class="vm-label">Our mission</p>
+          <p class="vm-text">To mature individuals. Build the family. Impact the community.</p>
+        </div>
+      </div>
     </div>
     <figure class="photo photo-square" data-reveal="img">
       <img src="assets/img/welcome.webp" alt="A congregant reading her Bible during a service" width="641" height="960" loading="lazy">
@@ -370,7 +381,7 @@
     <div class="rail-body give">
       <div class="stack">
         <h2 id="give-h" class="h2" data-reveal>Give with purpose.</h2>
-        <p class="muted max-42">Your generosity helps us serve our church, our community and the people God has entrusted to us.</p>
+        <blockquote class="verse max-42"><p>“Honor the Lord with your wealth and with the best part of everything you produce.”</p><cite>Proverbs 3:9</cite></blockquote>
         {%- if c.giving.online_link and c.giving.online_link != "" %}
         <a class="btn btn-outline" href="{{ c.giving.online_link }}" target="_blank" rel="noopener">Give online</a>
         {%- endif %}
@@ -394,6 +405,7 @@
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer">
   <div class="wrap">
+    <img class="foot-logo" src="assets/img/banner.webp" alt="His Word Christian Centre" width="920" height="214" loading="lazy">
     <p class="foot-motto" aria-label="His Will. His Way. His Word.">
       <span aria-hidden="true">His Will.</span>
       <span aria-hidden="true">His Way.</span>

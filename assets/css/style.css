@@ -92,7 +92,9 @@ section[id] { scroll-margin-top: 72px; }
 .brand { display: flex; align-items: center; gap: 12px; color: inherit; text-decoration: none; }
 .brand-mark { font-family: var(--display); font-weight: 600; font-size: 22px; letter-spacing: .06em; }
 .brand-rule { width: 1px; height: 28px; background: currentColor; opacity: .4; }
-.brand-name { font-size: 11px; font-weight: 500; line-height: 1.25; }
+.brand-logo { height: 46px; width: auto; display: block; }
+.site-header.is-solid .brand-logo { height: 40px; }
+@media (max-width: 640px) { .brand-logo { height: 34px; } .site-header.is-solid .brand-logo { height: 30px; } }
 .nav-links { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
 .nav-links a, .live { color: inherit; text-decoration: none; font-size: 11.5px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 1px; padding: 4px 0; transition: background-size .4s var(--ease); }
 .nav-links a:hover, .live:hover { background-size: 100% 1px; }
@@ -274,6 +276,7 @@ section[id] { scroll-margin-top: 72px; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--navy); color: var(--paper); padding: clamp(80px, 10vw, 140px) var(--pad-x) 32px; }
+.foot-logo { display: block; width: min(100%, 460px); height: auto; margin-bottom: clamp(32px, 4vw, 48px); }
 .foot-motto { font-family: var(--display); font-weight: 600; font-size: clamp(48px, 7vw, 104px); line-height: 1.02; letter-spacing: -.03em; margin-bottom: clamp(56px, 8vw, 112px); }
 .foot-motto span { display: block; }
 .foot-motto em { font-style: italic; }
@@ -306,3 +309,12 @@ section[id] { scroll-margin-top: 72px; }
   html { scroll-behavior: auto; }
   .dot { animation: none; }
 }
+
+/* Vision & mission (Welcome) and scripture quotes */
+.vm { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 12px; padding-top: 28px; border-top: 1px solid var(--line); max-width: 52ch; }
+.vm-label { font: 600 11px/1 var(--text); letter-spacing: .16em; text-transform: uppercase; color: var(--wine); margin: 0 0 12px; }
+.vm-text { font-family: var(--display); font-weight: 600; font-size: 18px; line-height: 1.45; color: var(--navy); margin: 0; }
+.verse { margin: 16px 0 0; padding-left: 14px; border-left: 2px solid var(--accent); }
+.verse p { font-style: italic; color: var(--muted); font-size: 15px; line-height: 1.7; margin: 0; }
+.verse cite { display: block; margin-top: 6px; font: 600 11px/1 var(--text); font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: var(--navy); }
+@media (max-width: 640px) { .vm { grid-template-columns: 1fr; gap: 24px; } }
