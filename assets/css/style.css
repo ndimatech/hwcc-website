@@ -275,6 +275,7 @@ section[id] { scroll-margin-top: 72px; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--navy); color: var(--paper); padding: clamp(80px, 10vw, 140px) var(--pad-x) 32px; }
+.foot-logo { display: block; width: clamp(88px, 9vw, 128px); height: auto; margin-bottom: clamp(32px, 4vw, 48px); }
 .foot-motto { font-family: var(--display); font-weight: 600; font-size: clamp(48px, 7vw, 104px); line-height: 1.02; letter-spacing: -.03em; margin-bottom: clamp(56px, 8vw, 112px); }
 .foot-motto span { display: block; }
 .foot-motto em { font-style: italic; }
