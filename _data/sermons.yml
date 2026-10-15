@@ -29,6 +29,16 @@ featured:
 # replace everything under "featured:" with nothing, so it reads:   featured:
 
 messages:
+  - title: The Power & Importance of Covenant
+    speaker:
+    youtube: https://youtu.be/KOXsOza9o-g
+    date:
+
+  - title: Be Fruitful and Multiply
+    speaker: Ps Sphiwe Magcanya
+    youtube: https://youtu.be/7-iN0hhn-s8
+    date:
+
   - title: Midwives of Purpose
     speaker: Ps Sphiwe Magcanya
     youtube: https://youtu.be/nVqbZUTiN8I
