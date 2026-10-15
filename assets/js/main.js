@@ -109,6 +109,7 @@
     var live = isServiceTime();
     liveLinks.forEach(function (a) {
       a.classList.toggle('is-live', live);
+      a.setAttribute('data-goatcounter-click', live ? 'watch-live' : 'watch-online');
       var label = a.querySelector('[data-live-label]');
       if (label) label.textContent = live ? 'Watch live' : 'Watch online';
       // Live stream is on Facebook; outside service times send people to the YouTube channel

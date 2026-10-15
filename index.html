@@ -81,8 +81,8 @@
       <li><a href="#give">Give</a></li>
     </ul>
     <div class="nav-cta">
-      <a class="live" href="{{ c.youtube }}" target="_blank" rel="noopener" data-live data-live-href="{{ c.livestream }}" data-online-href="{{ c.youtube }}"><span class="dot" aria-hidden="true"></span><span data-live-label>Watch online</span></a>
-      <a class="btn btn-nav" href="#visit">Plan a visit</a>
+      <a class="live" data-goatcounter-click="watch-online" href="{{ c.youtube }}" target="_blank" rel="noopener" data-live data-live-href="{{ c.livestream }}" data-online-href="{{ c.youtube }}"><span class="dot" aria-hidden="true"></span><span data-live-label>Watch online</span></a>
+      <a class="btn btn-nav" data-goatcounter-click="plan-a-visit" href="#visit">Plan a visit</a>
     </div>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-open>
       Menu <span class="burger" aria-hidden="true"><span></span><span></span></span>
@@ -104,8 +104,8 @@
     <li><a href="#give">Give</a></li>
   </ul>
   <div class="mm-foot">
-    <a class="btn btn-light" href="#visit">Plan a visit</a>
-    <a class="live" href="{{ c.youtube }}" target="_blank" rel="noopener" data-live data-live-href="{{ c.livestream }}" data-online-href="{{ c.youtube }}"><span class="dot" aria-hidden="true"></span><span data-live-label>Watch online</span></a>
+    <a class="btn btn-light" data-goatcounter-click="plan-a-visit" href="#visit">Plan a visit</a>
+    <a class="live" data-goatcounter-click="watch-online" href="{{ c.youtube }}" target="_blank" rel="noopener" data-live data-live-href="{{ c.livestream }}" data-online-href="{{ c.youtube }}"><span class="dot" aria-hidden="true"></span><span data-live-label>Watch online</span></a>
     <p>{% for sv in c.services %}{{ sv.day }}s · {{ sv.start }} – {{ sv.end }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p>
   </div>
 </div>
@@ -129,8 +129,8 @@
     </div>
     <div class="hero-aside" data-reveal style="--d:900ms">
       <div class="hero-ctas">
-        <a class="btn btn-light" href="#visit">Plan a visit</a>
-        <a class="link-line link-light" href="#sermons">Watch online</a>
+        <a class="btn btn-light" data-goatcounter-click="plan-a-visit" href="#visit">Plan a visit</a>
+        <a class="link-line link-light" data-goatcounter-click="banner-watch-online" href="#sermons">Watch online</a>
       </div>
       <p class="hero-times">{% for sv in c.services %}{{ sv.day }} · {{ sv.start }} – {{ sv.end }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p>
     </div>
@@ -212,7 +212,7 @@
       {%- if feat.image and feat.image != "" %}
       <div class="media-frame video-facade" data-reveal="img" data-embed="{{ embed }}{% if embed contains '?' %}&amp;{% else %}?{% endif %}autoplay=1" data-watch="{{ u }}">
         <img src="{{ feat.image }}" alt="" loading="lazy" style="object-position:50% 26%">
-        <button type="button" class="play" aria-label="Play {{ feat.title | escape }}"><span class="play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>{% if u contains "list=" %}Play series{% else %}Play message{% endif %}</button>
+        <button type="button" class="play" data-goatcounter-click="sermon-play-featured" aria-label="Play {{ feat.title | escape }}"><span class="play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>{% if u contains "list=" %}Play series{% else %}Play message{% endif %}</button>
       </div>
       {%- else %}
       <div class="media-frame" data-reveal="img">
@@ -226,7 +226,7 @@
             <h3 id="latest-h" class="h3">{{ feat.title }}</h3>
             <p class="small muted">{% if feat.subtitle and feat.subtitle != "" %}{{ feat.subtitle }}{% else %}{{ feat.speaker }}{% if feat.date %} · {{ feat.date | date: "%-d %B %Y" }}{% endif %}{% endif %}</p>
           </div>
-          <a class="btn btn-outline" href="{{ u }}" target="_blank" rel="noopener">{% if u contains "list=" %}Watch the series{% else %}Watch on YouTube{% endif %} →</a>
+          <a class="btn btn-outline" data-goatcounter-click="sermon-featured-youtube" href="{{ u }}" target="_blank" rel="noopener">{% if u contains "list=" %}Watch the series{% else %}Watch on YouTube{% endif %} →</a>
         </div>
       </div>
     </article>
@@ -236,10 +236,10 @@
       <div class="rail-body">
         <ul class="recent-list">
           {%- for m in sm.messages limit: 3 offset: recent_from %}
-          <li><a href="{{ m.youtube | strip }}" target="_blank" rel="noopener">{% if m.date %}<span class="r-date">{{ m.date | date: "%-d %b %Y" }}</span>{% endif %}<span class="r-title">{{ m.title }}</span><span class="r-by">{{ m.speaker }}</span></a></li>
+          <li><a data-goatcounter-click="sermon: {{ m.title | escape }}" href="{{ m.youtube | strip }}" target="_blank" rel="noopener">{% if m.date %}<span class="r-date">{{ m.date | date: "%-d %b %Y" }}</span>{% endif %}<span class="r-title">{{ m.title }}</span><span class="r-by">{{ m.speaker }}</span></a></li>
           {%- endfor %}
         </ul>
-        <a class="link-line" href="{{ c.youtube }}" target="_blank" rel="noopener">View all messages on YouTube</a>
+        <a class="link-line" data-goatcounter-click="sermons-all-youtube" href="{{ c.youtube }}" target="_blank" rel="noopener">View all messages on YouTube</a>
       </div>
     </div>
   </div>
@@ -313,7 +313,7 @@
           <p class="muted"><span class="tbc">[EVENT DESCRIPTION]</span></p>
           {%- endif %}
           {%- if e.link and e.link != "" %}
-          <a class="link-line" href="{{ e.link }}" target="_blank" rel="noopener">More info →</a>
+          <a class="link-line" data-goatcounter-click="event-more-info: {{ e.name | escape }}" href="{{ e.link }}" target="_blank" rel="noopener">More info →</a>
           {%- endif %}
         </div>
         <p class="ev-where">{% if e.venue and e.venue != "" %}{{ e.venue }}{% else %}<span class="tbc">[VENUE]</span>{% endif %}<br>{% if e.time and e.time != "" %}{{ e.time }}{% else %}<span class="tbc">[TIME]</span>{% endif %}</p>
@@ -343,15 +343,15 @@
           {%- endfor %}
           <div><dt>Address</dt><dd>{{ c.address_line1 }}, {{ c.address_line2 }}</dd></div>
           <div class="block"><dt>What to expect</dt><dd>From the moment you arrive, our welcoming team will be there to greet you and help you feel at home. Our service runs from 08:00 to 10:00, and we encourage you to come as you are — there’s no special dress code, just come ready to worship! We welcome visitors from all backgrounds, and our team will gladly assist you with information about the languages used during the service, children’s church, and wheelchair access. We look forward to meeting you and making your first visit a memorable one!</dd></div>
-          <div><dt>Contact</dt><dd>{% if tel != "" %}<a class="dd-link" href="tel:{{ tel }}">{{ c.phone }}</a>{% else %}<span class="tbc">[PHONE NUMBER]</span>{% endif %} · <a class="dd-link" href="mailto:{{ c.email }}">{{ c.email | replace: "@", "@<wbr>" }}</a></dd></div>
+          <div><dt>Contact</dt><dd>{% if tel != "" %}<a class="dd-link" data-goatcounter-click="call-us" href="tel:{{ tel }}">{{ c.phone }}</a>{% else %}<span class="tbc">[PHONE NUMBER]</span>{% endif %} · <a class="dd-link" data-goatcounter-click="email-us" href="mailto:{{ c.email }}">{{ c.email | replace: "@", "@<wbr>" }}</a></dd></div>
         </dl>
         <div class="visit-ctas">
-          <a class="btn btn-light" href="mailto:{{ c.email }}">Email us</a>
+          <a class="btn btn-light" data-goatcounter-click="email-us" href="mailto:{{ c.email }}">Email us</a>
           {%- if tel != "" %}
-          <a class="link-line link-light" href="tel:{{ tel }}">Call us</a>
+          <a class="link-line link-light" data-goatcounter-click="call-us" href="tel:{{ tel }}">Call us</a>
           {%- endif %}
           {%- if wa != "" %}
-          <a class="link-line link-light" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener">WhatsApp us</a>
+          <a class="link-line link-light" data-goatcounter-click="whatsapp-us" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener">WhatsApp us</a>
           {%- endif %}
         </div>
       </div>
@@ -383,7 +383,7 @@
         <h2 id="give-h" class="h2" data-reveal>Give with purpose.</h2>
         <blockquote class="verse max-42"><p>“Honor the Lord with your wealth and with the best part of everything you produce.”</p><cite>Proverbs 3:9</cite></blockquote>
         {%- if c.giving.online_link and c.giving.online_link != "" %}
-        <a class="btn btn-outline" href="{{ c.giving.online_link }}" target="_blank" rel="noopener">Give online</a>
+        <a class="btn btn-outline" data-goatcounter-click="give-online" href="{{ c.giving.online_link }}" target="_blank" rel="noopener">Give online</a>
         {%- endif %}
       </div>
       <div class="eft">
@@ -433,15 +433,15 @@
       </nav>
       <div>
         <p class="foot-h">Contact</p>
-        <p>{{ c.address_line1 }}<br>{{ c.address_line2 }}<br>{% if tel != "" %}<a href="tel:{{ tel }}">{{ c.phone }}</a>{% else %}<span class="tbc">[PHONE NUMBER]</span>{% endif %}<br><a href="mailto:{{ c.email }}">{{ c.email | replace: "@", "@<wbr>" }}</a></p>
+        <p>{{ c.address_line1 }}<br>{{ c.address_line2 }}<br>{% if tel != "" %}<a data-goatcounter-click="call-us" href="tel:{{ tel }}">{{ c.phone }}</a>{% else %}<span class="tbc">[PHONE NUMBER]</span>{% endif %}<br><a data-goatcounter-click="email-us" href="mailto:{{ c.email }}">{{ c.email | replace: "@", "@<wbr>" }}</a></p>
       </div>
       <div>
         <p class="foot-h">Follow</p>
         <div class="socials">
-          <a href="{{ c.social.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-          <a href="{{ c.social.tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
-          <a href="{{ c.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
-          <a href="{{ c.social.youtube }}" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+          <a data-goatcounter-click="social-instagram" href="{{ c.social.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a data-goatcounter-click="social-tiktok" href="{{ c.social.tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+          <a data-goatcounter-click="social-facebook" href="{{ c.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+          <a data-goatcounter-click="social-youtube" href="{{ c.social.youtube }}" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
         </div>
       </div>
     </div>
@@ -454,5 +454,6 @@
 </footer>
 
 <script src="assets/js/main.js" defer></script>
+<script data-goatcounter="https://hwcc.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

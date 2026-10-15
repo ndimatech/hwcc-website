@@ -29,3 +29,10 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
 - Email is separate and must not be touched: MX → mx1.tld-mx.com; `mail` A → 169.239.218.79 (cPanel cp79);
   imap/pop/smtp/webmail/cpcalendars/cpcontacts CNAME → mail; SPF `v=spf1 +a:mail… +mx include:_spf.tld-mx.com ~all`.
 - Rollback: bare-domain A → 169.239.219.58 (old hosting), `www` CNAME → hiswordchristiancentre.co.za.
+
+## Analytics (GoatCounter, added 15 Oct 2026)
+- Dashboard: https://hwcc.goatcounter.com (account on the church email). Script at the end of index.html; no cookies, so no consent banner.
+- Clicks are counted with `data-goatcounter-click="name"` on links/buttons (call-us, whatsapp-us, email-us, plan-a-visit,
+  watch-online / watch-live (set by main.js during service times), sermon: <title>, social-*, give-online, event-more-info: <name>).
+  Tag any new important button the same way. count.js ignores localhost and file:// previews.
+
