@@ -81,7 +81,7 @@
       <li><a href="#give">Give</a></li>
     </ul>
     <div class="nav-cta">
-      <a class="live" data-goatcounter-click="watch-online" href="{{ c.youtube }}" target="_blank" rel="noopener" data-live data-live-href="{{ c.livestream }}" data-online-href="{{ c.youtube }}"><span class="dot" aria-hidden="true"></span><span data-live-label>Watch online</span></a>
+      <a class="live" data-goatcounter-click="watch-online" data-goatcounter-title="Watch online / live button" href="{{ c.youtube }}" target="_blank" rel="noopener" data-live data-live-href="{{ c.livestream }}" data-online-href="{{ c.youtube }}"><span class="dot" aria-hidden="true"></span><span data-live-label>Watch online</span></a>
       <a class="btn btn-nav" data-goatcounter-click="plan-a-visit" href="#visit">Plan a visit</a>
     </div>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-open>
@@ -105,7 +105,7 @@
   </ul>
   <div class="mm-foot">
     <a class="btn btn-light" data-goatcounter-click="plan-a-visit" href="#visit">Plan a visit</a>
-    <a class="live" data-goatcounter-click="watch-online" href="{{ c.youtube }}" target="_blank" rel="noopener" data-live data-live-href="{{ c.livestream }}" data-online-href="{{ c.youtube }}"><span class="dot" aria-hidden="true"></span><span data-live-label>Watch online</span></a>
+    <a class="live" data-goatcounter-click="watch-online" data-goatcounter-title="Watch online / live button" href="{{ c.youtube }}" target="_blank" rel="noopener" data-live data-live-href="{{ c.livestream }}" data-online-href="{{ c.youtube }}"><span class="dot" aria-hidden="true"></span><span data-live-label>Watch online</span></a>
     <p>{% for sv in c.services %}{{ sv.day }}s · {{ sv.start }} – {{ sv.end }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p>
   </div>
 </div>
@@ -212,7 +212,7 @@
       {%- if feat.image and feat.image != "" %}
       <div class="media-frame video-facade" data-reveal="img" data-embed="{{ embed }}{% if embed contains '?' %}&amp;{% else %}?{% endif %}autoplay=1" data-watch="{{ u }}">
         <img src="{{ feat.image }}" alt="" loading="lazy" style="object-position:50% 26%">
-        <button type="button" class="play" data-goatcounter-click="sermon-play-featured" aria-label="Play {{ feat.title | escape }}"><span class="play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>{% if u contains "list=" %}Play series{% else %}Play message{% endif %}</button>
+        <button type="button" class="play" data-goatcounter-click="sermon-play-featured" data-goatcounter-title="Play: {{ feat.title | escape }}" aria-label="Play {{ feat.title | escape }}"><span class="play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>{% if u contains "list=" %}Play series{% else %}Play message{% endif %}</button>
       </div>
       {%- else %}
       <div class="media-frame" data-reveal="img">
@@ -236,7 +236,7 @@
       <div class="rail-body">
         <ul class="recent-list">
           {%- for m in sm.messages limit: 3 offset: recent_from %}
-          <li><a data-goatcounter-click="sermon: {{ m.title | escape }}" href="{{ m.youtube | strip }}" target="_blank" rel="noopener">{% if m.date %}<span class="r-date">{{ m.date | date: "%-d %b %Y" }}</span>{% endif %}<span class="r-title">{{ m.title }}</span><span class="r-by">{{ m.speaker }}</span></a></li>
+          <li><a data-goatcounter-click="sermon: {{ m.title | escape }}" data-goatcounter-title="{{ m.title | escape }}{% if m.speaker %} · {{ m.speaker | escape }}{% endif %}" href="{{ m.youtube | strip }}" target="_blank" rel="noopener">{% if m.date %}<span class="r-date">{{ m.date | date: "%-d %b %Y" }}</span>{% endif %}<span class="r-title">{{ m.title }}</span><span class="r-by">{{ m.speaker }}</span></a></li>
           {%- endfor %}
         </ul>
         <a class="link-line" data-goatcounter-click="sermons-all-youtube" href="{{ c.youtube }}" target="_blank" rel="noopener">View all messages on YouTube</a>
@@ -438,10 +438,10 @@
       <div>
         <p class="foot-h">Follow</p>
         <div class="socials">
-          <a data-goatcounter-click="social-instagram" href="{{ c.social.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-          <a data-goatcounter-click="social-tiktok" href="{{ c.social.tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
-          <a data-goatcounter-click="social-facebook" href="{{ c.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
-          <a data-goatcounter-click="social-youtube" href="{{ c.social.youtube }}" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+          <a data-goatcounter-click="social-instagram" data-goatcounter-title="Instagram (footer)" href="{{ c.social.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a data-goatcounter-click="social-tiktok" data-goatcounter-title="TikTok (footer)" href="{{ c.social.tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
+          <a data-goatcounter-click="social-facebook" data-goatcounter-title="Facebook (footer)" href="{{ c.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+          <a data-goatcounter-click="social-youtube" data-goatcounter-title="YouTube (footer)" href="{{ c.social.youtube }}" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
         </div>
       </div>
     </div>
