@@ -16,7 +16,7 @@ Each change: edit the file on github.com → **Commit changes** → the live sit
 ## Weekly sermon update (about 2 minutes, works on a phone)
 
 1. Open the edit page for the sermons file (bookmark it):
-   `https://github.com/OWNER/REPO/edit/main/_data/sermons.yml`
+   `https://github.com/ndimatech/hwcc-website/edit/main/_data/sermons.yml`
 2. Copy an existing message block (4 lines) and paste it at the top of `messages:`:
    ```yaml
    messages:
@@ -82,11 +82,10 @@ This builds `_preview/index.html` and a single-file `HWCC-homepage-preview.html`
 1. Create a **public** repository (GitHub Pages is free for public repos), e.g. `hwcc-website`.
 2. **Add file → Upload files**, drag in everything from this folder (including the `_data` folder), commit.
 3. **Settings → Pages →** Source: *Deploy from a branch* → Branch: `main`, folder `/ (root)` → Save.
-4. After a minute the site is live at `https://OWNER.github.io/hwcc-website/`. Use this link for previews.
-5. Replace `OWNER/REPO` in the bookmark link above with your account and repo name.
+4. After a minute the site is live. (Done: it now serves at `https://hiswordchristiancentre.co.za`.)
 
-**Letting Thuli post sermons herself (optional):** Settings → Collaborators → add her GitHub account.
-She can then use the same edit link, and you can see every change she makes in the history.
+**Letting a church member post sermons themselves (optional):** Settings → Collaborators → add their GitHub account.
+They can then use the same edit link, and you can see every change they make in the history.
 
 ## Launch day
 
@@ -99,7 +98,7 @@ _Launched 12 Oct 2026: domain connected, HTTPS enforced, all placeholders filled
 3. Custom domain (`hiswordchristiancentre.co.za`): Settings → Pages → Custom domain → enter the domain → Save.
    At the domain's DNS provider add:
    - `A` records for the bare domain: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME` record: `www` → `OWNER.github.io`
+   - `CNAME` record: `www` → `ndimatech.github.io`
 
    **Do not change the MX records.** They deliver the church's email.
 4. When the certificate is ready, tick **Enforce HTTPS** on the Pages settings page.
