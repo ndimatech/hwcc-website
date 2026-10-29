@@ -12,6 +12,7 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   suffixes like " | Sunday Service" and use Title Case. Fix obvious spelling only if YouTube's title confirms it.
 - Store links without tracking params (`?si=…`).
 - Lead pastor is written "Ps Sphiwe Magcanya". Other speakers as given.
+- If YouTube names no speaker (e.g. just "| Sunday Service"), default to Ps Sphiwe Magcanya and say so in the reply so Mubarak can correct it (agreed 29 Oct 2026).
 - Only change `featured:` when asked.
 
 ## Rules

@@ -12,6 +12,7 @@ url: https://hiswordchristiancentre.co.za
 
 exclude:
   - README.md
+  - CLAUDE.md
   - UPDATING.md
   - tools
   - Gemfile
