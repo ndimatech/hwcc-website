@@ -29,6 +29,11 @@ featured:
 # replace everything under "featured:" with nothing, so it reads:   featured:
 
 messages:
+  - title: When the Journey Outlasts Your Strength
+    speaker:
+    youtube: https://youtu.be/IGPYKO-0YzY
+    date:
+
   - title: Strengthen What Remains
     speaker: Ps Sphiwe Magcanya
     youtube: https://youtu.be/qNE2mCErEW8
