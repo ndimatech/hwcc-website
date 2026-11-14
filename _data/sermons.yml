@@ -19,16 +19,20 @@
 # ─────────────────────────────────────────────────────────────
 
 featured:
-  label: Latest series
-  title: Christ Above Culture
-  subtitle: Sermon series · 3 messages
-  youtube: https://www.youtube.com/playlist?list=PLER3W60qqzuU
-  image: assets/img/sermon-latest.webp   # optional cover picture; delete this line to show the YouTube player directly
-
-# To stop featuring the series and show the newest message instead,
-# replace everything under "featured:" with nothing, so it reads:   featured:
+# (Christ Above Culture series removed 14 Nov 2026; the newest message is now the big video.)
+# To feature a series again, fill in label, title, subtitle, youtube (and optionally image) under "featured:".
 
 messages:
+  - title: "The Causes of Poverty: When Your Habits Become Your Enemies"
+    speaker: Ps Sphiwe Magcanya
+    youtube: https://youtu.be/JyXbXNgcEsQ
+    date:
+
+  - title: Covered
+    speaker: Ps Sphiwe Magcanya
+    youtube: https://youtu.be/ry-WnrI99fo
+    date:
+
   - title: Redeeming the Times
     speaker: Ps Sphiwe Magcanya
     youtube: https://youtu.be/PraJvTVoEy4

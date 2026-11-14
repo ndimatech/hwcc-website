@@ -94,7 +94,7 @@
       '<ul class="cart-lines" data-lines></ul>' +
       '<form class="form-grid" data-checkout novalidate>' +
         '<fieldset class="opt form-grid"><legend>How would you like to get it?</legend>' +
-          '<label class="choice"><input type="radio" name="fulfilment" value="collect" checked><span><b>Collect at church</b>Free. We\'ll let you know when it\'s ready.</span></label>' +
+          '<label class="choice"><input type="radio" name="fulfilment" value="collect" checked><span><b>Collect At Church</b>Free. We\'ll let you know when it\'s ready.</span></label>' +
           '<label class="choice"><input type="radio" name="fulfilment" value="deliver"><span><b>Delivery, ' + R(DELIVERY) + '</b>Sent by courier once it\'s ready.</span></label>' +
         '</fieldset>' +
         '<label class="field">Full name<input name="name" autocomplete="name" required maxlength="80"></label>' +
@@ -164,7 +164,7 @@
     }).join('');
     var sub = subtotal(c), del = deliveryOn() ? DELIVERY : 0;
     totals.innerHTML = '<span>Items</span><span>' + R(sub) + '</span>' +
-      '<span>' + (del ? 'Delivery' : 'Collect at church') + '</span><span>' + (del ? R(del) : 'Free') + '</span>' +
+      '<span>' + (del ? 'Delivery' : 'Collect At Church') + '</span><span>' + (del ? R(del) : 'Free') + '</span>' +
       '<span class="grand">Total</span><span class="grand">' + R(sub + del) + '</span>';
     payBtn.textContent = 'Pay ' + R(sub + del);
   }
@@ -229,7 +229,7 @@
         fetch(API + '/api/orders/' + encodeURIComponent(orderId)).then(function (r) { return r.json(); }).then(function (o) {
           if (o.status === 'paid') {
             save([]);
-            banner('Thank you! Order ' + esc(o.orderNo) + ' is paid.', 'Please keep your order number. Everything is made to order, so allow about 2 weeks; we\'ll let you know when it\'s ' + (o.fulfilment === 'deliver' ? 'on its way.' : 'ready to collect at church.'));
+            banner('Thank you! Order ' + esc(o.orderNo) + ' is paid.', 'Please keep your order number. Everything is made to order, so allow about 2 weeks; we\'ll let you know when it\'s ' + (o.fulfilment === 'deliver' ? 'on its way.' : 'ready to Collect At Church.'));
             count('shop-paid');
           } else if (o.status === 'pending' && ++tries < 20) {
             setTimeout(poll, 3000);

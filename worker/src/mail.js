@@ -19,7 +19,7 @@ function addressText(o) {
 function totalsText(o) {
   return [
     `Items: ${R(o.subtotal_cents)}`,
-    o.delivery_cents ? `Delivery: ${R(o.delivery_cents)}` : "Collect at church: free",
+    o.delivery_cents ? `Delivery: ${R(o.delivery_cents)}` : "Collect At Church: free",
     `Total paid: ${R(o.total_cents)}`,
   ];
 }
@@ -31,7 +31,7 @@ export function orderAlert(o) {
       `New shop order, paid by card (Yoco).`, "",
       ...itemLines(o), "",
       ...totalsText(o), "",
-      o.fulfilment === "deliver" ? `DELIVER to: ${addressText(o)}` : "COLLECT at church",
+      o.fulfilment === "deliver" ? `DELIVER to: ${addressText(o)}` : "COLLECT AT CHURCH",
       "",
       `Name: ${o.name}`,
       `Cellphone: ${o.phone}`,

@@ -56,7 +56,7 @@
   <link rel="preload" href="assets/fonts/switzer-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero.webp" as="image">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261114e">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261114f">
   <script>document.documentElement.classList.add('js');
     window.HWCC_SERVICES = [{% for sv in c.services %}{ "day": "{{ sv.day }}", "start": "{{ sv.start }}", "end": "{{ sv.end }}" }{% unless forloop.last %}, {% endunless %}{% endfor %}];</script>
 </head>
@@ -385,7 +385,7 @@
     <div class="rail-body">
       <div class="shop-head">
         <h2 id="shop-h" class="h2" data-reveal>Wear His Word.</h2>
-        <p class="lead max-42">{{ shop.leadTime }} Collect at church, or have it delivered for R{{ shop.deliveryCents | divided_by: 100 }}.</p>
+        <p class="lead max-42">{{ shop.leadTime }} Collect At Church, or have it delivered for R{{ shop.deliveryCents | divided_by: 100 }}.</p>
       </div>
       <div class="shop-filter" role="group" aria-label="Show">
         <button type="button" class="chip is-on" data-filter="all" aria-pressed="true">All</button>
@@ -515,9 +515,9 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20261114e" defer></script>
+<script src="assets/js/main.js?v=20261114f" defer></script>
 {%- if site.data.shop.open or site.data.shop.test %}
-<script src="assets/js/shop.js?v=20261114e" defer></script>
+<script src="assets/js/shop.js?v=20261114f" defer></script>
 {%- endif %}
 <script data-goatcounter="https://hwcc.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
