@@ -19,8 +19,12 @@
 # ─────────────────────────────────────────────────────────────
 
 featured:
-# (Christ Above Culture series removed 14 Nov 2026; the newest message is now the big video.)
-# To feature a series again, fill in label, title, subtitle, youtube (and optionally image) under "featured:".
+  label: Latest series
+  title: The Causes of Poverty
+  subtitle: Sermon series · Ps Sphiwe Magcanya
+  youtube: https://youtu.be/JyXbXNgcEsQ   # first message; swap for the series playlist link once there is one
+# The featured video is left out of "Recent messages" when it is also the newest message.
+# Christ Above Culture (previous series) removed 14 Nov 2026.
 
 messages:
   - title: "The Causes of Poverty: When Your Habits Become Your Enemies"

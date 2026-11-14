@@ -193,6 +193,7 @@
 
     {%- if sm.featured and sm.featured.youtube and sm.featured.youtube != "" -%}
       {%- assign feat = sm.featured -%}{%- assign recent_from = 0 -%}
+      {%- assign m0 = sm.messages | first -%}{%- if m0.youtube == feat.youtube -%}{%- assign recent_from = 1 -%}{%- endif -%}
     {%- else -%}
       {%- assign feat = sm.messages | first -%}{%- assign recent_from = 1 -%}
     {%- endif -%}
