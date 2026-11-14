@@ -1,0 +1,27 @@
+# His Word Christian Centre shop checkout. Runs in the church's Cloudflare account.
+# Setup steps: see SHOP-SETUP.md at the repo root.
+name = "hwcc-shop"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "hwcc-shop"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"   # from Cloudflare: Storage & Databases > D1 > hwcc-shop
+migrations_dir = "migrations"
+
+# Per-visitor limit on starting checkouts (generous: many phones share an IP).
+[[ratelimits]]
+name = "CHECKOUT_LIMITER"
+namespace_id = "2101"
+simple = { limit = 8, period = 60 }
+
+[vars]
+SITE_URL = "https://hiswordchristiancentre.co.za"
+ORDER_EMAIL = "admin@hiswordchristiancentre.co.za"
+# MAIL_FROM = "His Word Christian Centre <shop@hiswordchristiancentre.co.za>"   # once the domain is verified in Resend
+# REPLY_TO = "admin@hiswordchristiancentre.co.za"
+# Secrets (Cloudflare dashboard > Workers > hwcc-shop > Settings > Variables and Secrets, type "Secret"):
+#   YOCO_SECRET_KEY, YOCO_WEBHOOK_SECRET, RESEND_API_KEY
+# Never set ALLOW_MOCK_PAYMENTS here: it is for local testing only (--var ALLOW_MOCK_PAYMENTS:1).

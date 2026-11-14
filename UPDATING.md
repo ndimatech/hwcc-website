@@ -8,6 +8,7 @@ Everything that changes lives in the **`_data/`** folder. You never need to touc
 | `_data/events.yml` | Upcoming events | When events are announced |
 | `_data/church.yml` | Phone, email, service times, livestream, socials, next steps, giving | Rarely |
 | `_data/ministries.yml` | Ministry descriptions and photos | Rarely |
+| `_data/shop.json` | Shop products, colours, sizes, prices, delivery fee | When merchandise changes |
 
 Each change: edit the file on github.com → **Commit changes** → the live site updates in about 1 minute.
 
@@ -110,3 +111,14 @@ _Launched 12 Oct 2026: domain connected, HTTPS enforced, all placeholders filled
 Upload to `assets/img/` (WebP or JPG). To replace an existing photo, upload a file with the **same name**.
 Banner photo: at least 2400 px wide. Others: about 1200 px on the long side. Use original files, not
 WhatsApp or social-media copies.
+
+## Shop
+
+Products live in `_data/shop.json`. **The checkout charges whatever this file says**, so check prices carefully.
+- Prices are in cents: R250 is `25000`, the delivery fee R149 is `14900`.
+- To hide the whole shop: `"open": false`.
+- Each colour needs a photo in `assets/img/shop/` (4:3, about 1000 × 750) and its `image` path in the file.
+- JSON is strict: keep the quotes and commas exactly like the lines around your change.
+
+Setting up or changing the payment side (Cloudflare, Yoco, Resend): see `SHOP-SETUP.md`.
+

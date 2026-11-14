@@ -1,0 +1,348 @@
+{
+  "_note": "Merchandise catalogue. The website AND the checkout read this file, so a price changed here changes what customers pay. Prices in cents (R250 = 25000).",
+  "open": true,
+  "api": "",
+  "deliveryCents": 14900,
+  "leadTime": "Made to order. Ready in about 2 weeks.",
+  "products": [
+    {
+      "id": "tee-elihle",
+      "name": "His Word Elihle T-shirt",
+      "kind": "T-shirt",
+      "priceCents": 25000,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "detail": "“His Word Elihle” on the front, small cross on the back.",
+      "colours": [
+        {
+          "id": "white-navy",
+          "name": "White, navy print",
+          "garment": "#FFFFFF",
+          "ink": "#1C2645",
+          "image": "assets/img/shop/tee-elihle-white-navy.webp"
+        },
+        {
+          "id": "white-maroon",
+          "name": "White, maroon print",
+          "garment": "#FFFFFF",
+          "ink": "#6B1F27",
+          "image": "assets/img/shop/tee-elihle-white-maroon.webp"
+        },
+        {
+          "id": "white-black",
+          "name": "White, black print",
+          "garment": "#FFFFFF",
+          "ink": "#141414",
+          "image": "assets/img/shop/tee-elihle-white-black.webp"
+        },
+        {
+          "id": "cream-navy",
+          "name": "Cream, navy print",
+          "garment": "#EFE6D4",
+          "ink": "#1C2645",
+          "image": "assets/img/shop/tee-elihle-cream-navy.webp"
+        },
+        {
+          "id": "cream-maroon",
+          "name": "Cream, maroon print",
+          "garment": "#EFE6D4",
+          "ink": "#6B1F27",
+          "image": "assets/img/shop/tee-elihle-cream-maroon.webp"
+        },
+        {
+          "id": "cream-black",
+          "name": "Cream, black print",
+          "garment": "#EFE6D4",
+          "ink": "#141414",
+          "image": "assets/img/shop/tee-elihle-cream-black.webp"
+        },
+        {
+          "id": "black-white",
+          "name": "Black, white print",
+          "garment": "#141414",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/tee-elihle-black.webp"
+        },
+        {
+          "id": "navy-white",
+          "name": "Navy, white print",
+          "garment": "#1C2645",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/tee-elihle-navy.webp"
+        },
+        {
+          "id": "maroon-white",
+          "name": "Maroon, white print",
+          "garment": "#5E1B22",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/tee-elihle-maroon.webp"
+        },
+        {
+          "id": "grey-white",
+          "name": "Grey, white print",
+          "garment": "#A9A9AB",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/tee-elihle-grey.webp"
+        }
+      ]
+    },
+    {
+      "id": "tee-cross",
+      "name": "His Will, Way, Word T-shirt",
+      "kind": "T-shirt",
+      "priceCents": 25000,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL",
+        "4XL"
+      ],
+      "detail": "Cross with “His Will. His Way. His Word.” on the front.",
+      "colours": [
+        {
+          "id": "black-white",
+          "name": "Black, white print",
+          "garment": "#141414",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/tee-cross-black.webp"
+        },
+        {
+          "id": "cream-maroon",
+          "name": "Cream, maroon print",
+          "garment": "#EFE6D4",
+          "ink": "#6B1F27",
+          "image": "assets/img/shop/tee-cross-cream.webp"
+        },
+        {
+          "id": "navy-white",
+          "name": "Navy, white print",
+          "garment": "#1C2645",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/tee-cross-navy.webp"
+        },
+        {
+          "id": "maroon-white",
+          "name": "Maroon, white print",
+          "garment": "#5E1B22",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/tee-cross-maroon.webp"
+        },
+        {
+          "id": "grey-white",
+          "name": "Grey, white print",
+          "garment": "#A9A9AB",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/tee-cross-grey.webp"
+        }
+      ]
+    },
+    {
+      "id": "hoodie-elihle",
+      "name": "His Word Elihle Hoodie",
+      "kind": "Hoodie",
+      "priceCents": 45000,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ],
+      "detail": "“His Word Elihle” on the back, small cross on the chest.",
+      "colours": [
+        {
+          "id": "white-navy",
+          "name": "White, navy print",
+          "garment": "#FFFFFF",
+          "ink": "#1C2645",
+          "image": "assets/img/shop/hoodie-elihle-white-navy.webp"
+        },
+        {
+          "id": "white-maroon",
+          "name": "White, maroon print",
+          "garment": "#FFFFFF",
+          "ink": "#6B1F27",
+          "image": "assets/img/shop/hoodie-elihle-white-maroon.webp"
+        },
+        {
+          "id": "white-black",
+          "name": "White, black print",
+          "garment": "#FFFFFF",
+          "ink": "#141414",
+          "image": "assets/img/shop/hoodie-elihle-white-black.webp"
+        },
+        {
+          "id": "cream-navy",
+          "name": "Cream, navy print",
+          "garment": "#EFE6D4",
+          "ink": "#1C2645",
+          "image": "assets/img/shop/hoodie-elihle-cream-navy.webp"
+        },
+        {
+          "id": "cream-maroon",
+          "name": "Cream, maroon print",
+          "garment": "#EFE6D4",
+          "ink": "#6B1F27",
+          "image": "assets/img/shop/hoodie-elihle-cream-maroon.webp"
+        },
+        {
+          "id": "black-white",
+          "name": "Black, white print",
+          "garment": "#141414",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/hoodie-elihle-black.webp"
+        },
+        {
+          "id": "maroon-white",
+          "name": "Maroon, white print",
+          "garment": "#5E1B22",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/hoodie-elihle-maroon.webp"
+        }
+      ]
+    },
+    {
+      "id": "hoodie-cross",
+      "name": "His Will, Way, Word Hoodie",
+      "kind": "Hoodie",
+      "priceCents": 45000,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ],
+      "detail": "Large cross with “His Will. His Way. His Word.” on the front.",
+      "colours": [
+        {
+          "id": "black-white",
+          "name": "Black, white print",
+          "garment": "#141414",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/hoodie-cross-black.webp"
+        }
+      ]
+    },
+    {
+      "id": "sweater-elihle",
+      "name": "His Word Elihle Sweater",
+      "kind": "Sweater",
+      "priceCents": 40000,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ],
+      "detail": "“His Word Elihle” on the front.",
+      "colours": [
+        {
+          "id": "white-navy",
+          "name": "White, navy print",
+          "garment": "#FFFFFF",
+          "ink": "#1C2645",
+          "image": "assets/img/shop/sweater-elihle-white-navy.webp"
+        },
+        {
+          "id": "white-maroon",
+          "name": "White, maroon print",
+          "garment": "#FFFFFF",
+          "ink": "#6B1F27",
+          "image": "assets/img/shop/sweater-elihle-white-maroon.webp"
+        },
+        {
+          "id": "white-black",
+          "name": "White, black print",
+          "garment": "#FFFFFF",
+          "ink": "#141414",
+          "image": "assets/img/shop/sweater-elihle-white-black.webp"
+        },
+        {
+          "id": "navy-white",
+          "name": "Navy, white print",
+          "garment": "#1C2645",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/sweater-elihle-navy.webp"
+        },
+        {
+          "id": "black-white",
+          "name": "Black, white print",
+          "garment": "#141414",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/sweater-elihle-black.webp"
+        },
+        {
+          "id": "maroon-white",
+          "name": "Maroon, white print",
+          "garment": "#5E1B22",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/sweater-elihle-maroon.webp"
+        }
+      ]
+    },
+    {
+      "id": "sweater-cross",
+      "name": "His Will, Way, Word Sweater",
+      "kind": "Sweater",
+      "priceCents": 40000,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ],
+      "detail": "Cross with “His Will. His Way. His Word.” on the front.",
+      "colours": [
+        {
+          "id": "white-black",
+          "name": "White, black print",
+          "garment": "#FFFFFF",
+          "ink": "#141414",
+          "image": "assets/img/shop/sweater-cross-white-black.webp"
+        },
+        {
+          "id": "white-gold",
+          "name": "White, gold print",
+          "garment": "#FFFFFF",
+          "ink": "#B8892E",
+          "image": "assets/img/shop/sweater-cross-white-gold.webp"
+        },
+        {
+          "id": "white-navy",
+          "name": "White, navy print",
+          "garment": "#FFFFFF",
+          "ink": "#1C2645",
+          "image": "assets/img/shop/sweater-cross-white-navy.webp"
+        },
+        {
+          "id": "white-maroon",
+          "name": "White, maroon print",
+          "garment": "#FFFFFF",
+          "ink": "#6B1F27",
+          "image": "assets/img/shop/sweater-cross-white-maroon.webp"
+        },
+        {
+          "id": "navy-grey",
+          "name": "Navy, grey print",
+          "garment": "#1C2645",
+          "ink": "#B9B9BB",
+          "image": "assets/img/shop/sweater-cross-navy.webp"
+        }
+      ]
+    }
+  ],
+  "_api_note": "api = the checkout server address (Cloudflare Worker), e.g. https://hwcc-shop.<subdomain>.workers.dev. Empty = shop shows, payment says 'opening soon'."
+}
