@@ -51,7 +51,9 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   Emails via Resend: alerts to ORDER_EMAIL (admin@), buyer receipts only once MAIL_FROM is on a verified domain.
   Resend DNS records go on resend._domainkey + send subdomain only; never touch the main MX/SPF.
 - 14 Nov 2026: Yoco TEST key + webhook set; first real test-card payment via /?shoptest=1 confirmed paid by webhook (HWCC-1002;
-  1001 was an unpaid attempt). Test orders share the live D1. Still to do: Resend, live key + webhook, small live buy + refund, open.
+  1001 was an unpaid attempt). Test orders share the live D1. Resend alert email to admin@ works (HWCC-1003).
+  Still to do: Resend domain + MAIL_FROM, live key + webhook, small live buy + refund, CLEAR TEST ORDERS (Mubarak asked;
+  SHOP-SETUP 5.3), then open.
   Cloudflare Workers Builds lost its GitHub link once (fixed by reconnecting); the D1 is `hwcc-shop`, the Worker `hwcc-website`.
 - Mock payments only with `--var ALLOW_MOCK_PAYMENTS:1` (local). Never in wrangler.toml.
 - Setup steps for Mubarak: SHOP-SETUP.md. Tests: `cd worker && npm test`; local e2e: wrangler dev + preview with data-api.
