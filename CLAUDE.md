@@ -62,5 +62,7 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   Cloudflare Workers Builds lost its GitHub link once (fixed by reconnecting); the D1 is `hwcc-shop`, the Worker `hwcc-website`.
 - Mock payments only with `--var ALLOW_MOCK_PAYMENTS:1` (local). Never in wrangler.toml.
 - Setup steps for Mubarak: SHOP-SETUP.md. Tests: `cd worker && npm test`; local e2e: wrangler dev + preview with data-api.
+- Buyer updates (14 Nov 2026): church chose Option 1, the office WhatsApps/emails buyers by hand from the order alert (no
+  Mark ready/sent buttons). Collection times still to come from the church.
 - Tag new shop buttons for GoatCounter; shop.js already counts shop-add, shop-checkout, shop-paid.
 
