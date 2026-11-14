@@ -21,6 +21,24 @@
   }
   var API = (shop.getAttribute('data-api') || '').replace(/\/$/, '');
   var DELIVERY = Number(shop.getAttribute('data-delivery')) || 0;
+  var TS_KEY = shop.getAttribute('data-turnstile') || '';
+
+  // ---- Bot check (Cloudflare Turnstile): usually invisible; a box appears only when Cloudflare is unsure ----
+  var ts = { id: null, loading: false };
+  function mountBotCheck() {
+    if (!TS_KEY || ts.loading) return;
+    ts.loading = true;
+    var s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+    s.async = true;
+    s.onload = function () {
+      var box = drawer.querySelector('[data-botcheck]');
+      if (window.turnstile && box) ts.id = window.turnstile.render(box, { sitekey: TS_KEY, appearance: 'interaction-only' });
+    };
+    document.head.appendChild(s);
+  }
+  function botToken() { try { return ts.id != null && window.turnstile ? window.turnstile.getResponse(ts.id) || '' : ''; } catch (e) { return ''; } }
+  function botReset() { try { if (ts.id != null && window.turnstile) window.turnstile.reset(ts.id); } catch (e) {} }
   var KEY = 'hwcc-cart';
   var PROVINCES = ['Gauteng', 'Eastern Cape', 'Free State', 'KwaZulu-Natal', 'Limpopo', 'Mpumalanga', 'North West', 'Northern Cape', 'Western Cape'];
 
@@ -109,6 +127,7 @@
         '</div>' +
         '<label class="field">Notes (optional)<textarea name="notes" maxlength="400"></textarea></label>' +
         '<div class="totals" data-totals></div>' +
+        '<div class="botcheck" data-botcheck></div>' +
         '<button type="submit" class="btn btn-dark" data-pay>Pay</button>' +
         '<p class="checkout-msg" data-checkout-msg role="status"></p>' +
         '<p class="product-detail">Payment is by card through Yoco\'s secure checkout. Made to order: ready in 2 weeks. <a href="returns.html" target="_blank" rel="noopener">Returns and refunds</a> · <a href="privacy.html" target="_blank" rel="noopener">Privacy</a></p>' +
@@ -121,6 +140,7 @@
 
   function openDrawer() {
     lastFocus = document.activeElement; drawer.hidden = false; document.body.classList.add('drawer-open');
+    mountBotCheck();
     drawer.querySelector('[data-close]').focus();
   }
   function closeDrawer() {
@@ -183,6 +203,8 @@
     too_many_requests: 'Too many tries. Please wait a minute and try again.',
     shop_closed: 'The shop is closed at the moment.',
     payment_unavailable: 'Card payments are not available right now. Please try again later.',
+    verification_failed: 'Please complete the security check above Pay, then try again.',
+    verification_unavailable: 'Our security check is not available right now. Please try again in a minute.',
   };
 
   form.addEventListener('submit', function (e) {
@@ -192,6 +214,7 @@
       items: c.map(function (l) { return { productId: l.p, colourId: l.c, size: l.s, qty: l.q }; }),
       fulfilment: f.fulfilment.value,
       name: f.name.value.trim(), phone: f.phone.value.trim(), email: f.email.value.trim(), notes: f.notes.value.trim(),
+      turnstileToken: botToken(),
     };
     if (!body.name || !body.phone || !body.email) { cmsg.textContent = ERRORS.missing_details; return; }
     if (deliveryOn()) {
@@ -209,7 +232,7 @@
           window.location.href = res.d.redirectUrl; return;
         }
         cmsg.textContent = ERRORS[res.d && res.d.error] || 'Something went wrong. Please try again.';
-        payBtn.disabled = false; render();
+        botReset(); payBtn.disabled = false; render();
       })
       .catch(function () { cmsg.textContent = 'Could not reach the checkout. Please check your connection and try again.'; payBtn.disabled = false; render(); });
   });

@@ -78,5 +78,7 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   frames or connections (gc.zgo.at, hwcc.goatcounter.com, youtube(-nocookie), the shop api). New outside service =
   add it there. Inline script allowed by its sha256 only: changing that one line means a new hash. Service times
   are a JSON block (#hwcc-services), not inline JS. Pages can't send frame-ancestors/HSTS headers.
+- Turnstile bot check on the checkout (14 Nov 2026): site key in shop.json `turnstileSiteKey` (public), secret
+  TURNSTILE_SECRET_KEY on the Worker. Widget loads when the cart opens (interaction-only); CSP allows challenges.cloudflare.com.
 - Tag new shop buttons for GoatCounter; shop.js already counts shop-add, shop-checkout, shop-paid.
 

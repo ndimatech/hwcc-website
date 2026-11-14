@@ -83,6 +83,26 @@ async function rateLimited(env, request) {
   return !success;
 }
 
+// Cloudflare Turnstile bot check (14 Nov 2026). Required once TURNSTILE_SECRET_KEY is set (Cloudflare secret);
+// the site key is public and lives in _data/shop.json (turnstileSiteKey).
+const SITEVERIFY = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+export async function turnstileProblem(env, token, ip, fetchImpl = fetch) {
+  if (!env.TURNSTILE_SECRET_KEY) return null;
+  if (!token || typeof token !== "string" || token.length > 2048) return "verification_failed";
+  try {
+    const body = new FormData();
+    body.append("secret", env.TURNSTILE_SECRET_KEY);
+    body.append("response", token);
+    if (ip) body.append("remoteip", ip);
+    const res = await fetchImpl(SITEVERIFY, { method: "POST", body, signal: AbortSignal.timeout(5000) });
+    const data = await res.json();
+    return data.success === true ? null : "verification_failed";
+  } catch (err) {
+    console.error("turnstile verify error", err);
+    return "verification_unavailable";
+  }
+}
+
 // ---------- Orders ----------
 
 async function createOrder(request, env) {
@@ -93,6 +113,8 @@ async function createOrder(request, env) {
   const who = checkCustomer(body);
   if (who.error) return json({ error: who.error }, 400);
   if (await rateLimited(env, request)) return json({ error: "too_many_requests" }, 429);
+  const bot = await turnstileProblem(env, body.turnstileToken, request.headers.get("CF-Connecting-IP"));
+  if (bot) return json({ error: bot }, 403);
   if (paymentMode(env) === "off") return json({ error: "payment_unavailable" }, 503);
 
   const now = Date.now(), id = crypto.randomUUID();

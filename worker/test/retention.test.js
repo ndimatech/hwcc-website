@@ -15,3 +15,13 @@ test("retention matches privacy.html: 14 days unpaid, 120 days logs, 5 years pai
   assert.equal(calls[1][1], now - 5 * 365 * day);
   assert.equal(calls[2][1], now - 120 * day);
 });
+
+import { turnstileProblem } from "../src/index.js";
+test("Turnstile: off without a secret, required with one", async () => {
+  assert.equal(await turnstileProblem({}, ""), null);
+  assert.equal(await turnstileProblem({ TURNSTILE_SECRET_KEY: "s" }, ""), "verification_failed");
+  const ok = async () => ({ json: async () => ({ success: true }) });
+  const no = async () => ({ json: async () => ({ success: false }) });
+  assert.equal(await turnstileProblem({ TURNSTILE_SECRET_KEY: "s" }, "tok", "1.2.3.4", ok), null);
+  assert.equal(await turnstileProblem({ TURNSTILE_SECRET_KEY: "s" }, "tok", "1.2.3.4", no), "verification_failed");
+});

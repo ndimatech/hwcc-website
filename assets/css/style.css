@@ -418,3 +418,6 @@ body.drawer-open { overflow: hidden; }
 .policy-foot { padding: 24px var(--pad-x) 40px; border-top: 1px solid var(--line); text-align: center; font-size: 14px; color: var(--grey); }
 .policy-foot a { color: inherit; }
 .shop-note a, .product-detail a { color: inherit; text-decoration: underline; }
+
+.botcheck:empty { display: none; }
+.botcheck { margin: 4px 0; }
