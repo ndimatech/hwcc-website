@@ -1,7 +1,7 @@
 {
   "_note": "Merchandise catalogue. The website AND the checkout read this file, so a price changed here changes what customers pay. Prices in cents (R250 = 25000).",
-  "open": false,
-  "test": true,
+  "open": true,
+  "test": false,
   "api": "https://hwcc-website.round-paper-0c18.workers.dev",
   "deliveryCents": 14900,
   "leadTime": "Made to order. Ready in 2 weeks.",
@@ -341,26 +341,6 @@
           "garment": "#1C2645",
           "ink": "#B9B9BB",
           "image": "assets/img/shop/sweater-cross-navy.webp"
-        }
-      ]
-    },
-    {
-      "id": "payment-test",
-      "testOnly": true,
-      "name": "Payment test (not for sale)",
-      "kind": "Test",
-      "priceCents": 1000,
-      "sizes": [
-        "One size"
-      ],
-      "detail": "R10 item for checking live Yoco payments. Only shows in test mode (?shoptest=1) and can't be bought once the shop is open. Refund it in Yoco after testing.",
-      "colours": [
-        {
-          "id": "test",
-          "name": "Test item",
-          "garment": "#A0495D",
-          "ink": "#FFFFFF",
-          "image": "assets/img/shop/tee-cross-black.webp"
         }
       ]
     }

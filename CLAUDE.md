@@ -57,8 +57,8 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   1001 was an unpaid attempt). Test orders share the live D1. Resend alert email to admin@ works (HWCC-1003).
   Resend domain verified 14 Nov (records: TXT resend._domainkey,
   CNAME rsend + send → *.forge.rmta.net; existing _dmarc p=none); MAIL_FROM shop@, REPLY_TO admin@.
-  Still to do: live key + webhook, small live buy + refund, CLEAR TEST ORDERS (Mubarak asked;
-  SHOP-SETUP 5.3), then open.
+  Live key + live webhook added 14 Nov; R10 live payment worked. SHOP OPENED (open true, test false, payment-test removed,
+  returns.html in sitemap) after Mubarak cleared the test orders.
   Cloudflare Workers Builds lost its GitHub link once (fixed by reconnecting); the D1 is `hwcc-shop`, the Worker `hwcc-website`.
 - Mock payments only with `--var ALLOW_MOCK_PAYMENTS:1` (local). Never in wrangler.toml.
 - Setup steps for Mubarak: SHOP-SETUP.md. Tests: `cd worker && npm test`; local e2e: wrangler dev + preview with data-api.

@@ -50,8 +50,10 @@ test("webhook signatures verify and reject tampering or old timestamps", async (
 });
 
 test("R10 payment-test item: only in test mode, never once open", () => {
+  const testItem = { id: "payment-test", testOnly: true, name: "Payment test", kind: "Test", priceCents: 1000, sizes: ["One size"], colours: [{ id: "test", name: "Test" }] };
+  const shop = { ...SHOP, products: [...SHOP.products.filter((p) => !p.testOnly), testItem] };
   const item = [{ productId: "payment-test", colourId: "test", size: "One size", qty: 1 }];
-  assert.equal(priceOrder(item, "collect", { ...SHOP, open: false, test: true }).totalCents, 1000);
-  assert.equal(priceOrder(item, "collect", { ...SHOP, open: true, test: true }).error, "unknown_product");
-  assert.equal(priceOrder(item, "collect", { ...SHOP, open: true, test: false }).error, "unknown_product");
+  assert.equal(priceOrder(item, "collect", { ...shop, open: false, test: true }).totalCents, 1000);
+  assert.equal(priceOrder(item, "collect", { ...shop, open: true, test: true }).error, "unknown_product");
+  assert.equal(priceOrder(item, "collect", { ...shop, open: true, test: false }).error, "unknown_product");
 });
