@@ -41,9 +41,11 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
 - Catalogue: `_data/shop.json` (6 items, 34 colourways; T-shirt R250 S–4XL, sweater R400 and hoodie R450 S–2XL).
   Made to order, about 2 weeks. Collect at church free, or flat delivery R149 (South Africa; church's choice 14 Nov 2026).
   The site and the checkout BOTH read this file; prices in cents. `"open": false` hides the shop, empty `"api"` = "opens soon".
+  `"test": true` (while closed) shows it only at `/?shoptest=1` (sessionStorage), with a TEST MODE note.
 - Front-end: Shop section in index.html (cards rendered by Liquid), `assets/js/shop.js` (cart in localStorage, drawer,
   POST to the worker, return banner via `?order=<id>`). Images `assets/img/shop/` cropped from the church's AI mock-ups.
-- Checkout: `worker/` = Cloudflare Worker `hwcc-shop` in the CHURCH's Cloudflare account (Mubarak creates it), D1 `hwcc-shop`,
+- Checkout: `worker/` = Cloudflare Worker `hwcc-website` (https://hwcc-website.round-paper-0c18.workers.dev, Workers Builds from
+  this repo, root `worker`, deployed 14 Nov 2026) in the CHURCH's Cloudflare account, D1 `hwcc-shop`,
   Yoco Checkout API (code adapted from malhaya-website/src/yoco.js), signed webhook is the only proof of payment,
   events claimed once, wrong amount = automatic full refund + alert. Order numbers HWCC-1001 upwards.
   Emails via Resend: alerts to ORDER_EMAIL (admin@), buyer receipts only once MAIL_FROM is on a verified domain.

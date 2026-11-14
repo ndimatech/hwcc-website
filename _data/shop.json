@@ -1,7 +1,8 @@
 {
   "_note": "Merchandise catalogue. The website AND the checkout read this file, so a price changed here changes what customers pay. Prices in cents (R250 = 25000).",
   "open": false,
-  "api": "",
+  "test": true,
+  "api": "https://hwcc-website.round-paper-0c18.workers.dev",
   "deliveryCents": 14900,
   "leadTime": "Made to order. Ready in about 2 weeks.",
   "products": [
@@ -344,5 +345,5 @@
       ]
     }
   ],
-  "_api_note": "api = the checkout server address (Cloudflare Worker), e.g. https://hwcc-shop.<subdomain>.workers.dev. Empty = shop shows, payment says 'opening soon'."
+  "_api_note": "api = the checkout (Cloudflare Worker hwcc-website). open=false + test=true: shop hidden, but visible at /?shoptest=1 for testing."
 }

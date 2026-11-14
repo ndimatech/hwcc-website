@@ -7,42 +7,48 @@ The shop has two parts:
   every price from `_data/shop.json`, opens Yoco's checkout, confirms the payment from Yoco's signed webhook and
   emails the order.
 
-While `"api"` in `_data/shop.json` is empty, the shop shows but "Pay" says payment opens soon. With `"open": false`
-the shop is hidden completely.
+Switches in `_data/shop.json`:
+- `"open": false` hides the shop from the public.
+- `"test": true` (while closed) lets you try it on the real site at **https://hiswordchristiancentre.co.za/?shoptest=1**
+  (a "TEST MODE" note shows; nobody else sees the shop). The link is remembered until the browser tab is closed,
+  so the return from Yoco's page still shows it.
+- Empty `"api"` means "Pay" says payment opens soon.
+
+Checkout address: **https://hwcc-website.round-paper-0c18.workers.dev** (Worker `hwcc-website`).
 
 Do these in order. Never paste keys into chat, email or GitHub: they go into Cloudflare only.
 
-## 1. Cloudflare account (church)
+## 1. Cloudflare account (church) (done 14 Nov 2026)
 1. Sign up at dash.cloudflare.com with **admin@hiswordchristiancentre.co.za**.
 2. **Storage & databases → D1 → Create** a database named `hwcc-shop`. Copy its **Database ID** and put it in
    `worker/wrangler.toml` (`database_id`), or send it to Mubarak/Claude to put in. It isn't secret.
 
-## 2. Connect the code
+## 2. Connect the code (done 14 Nov 2026)
 1. **Workers & Pages → Create → Import a repository** → GitHub → `ndimatech/hwcc-website`
    (allow Cloudflare's GitHub app to see this repo).
 2. Settings:
-   - Project name: `hwcc-shop`
+   - Project name: `hwcc-website` (must match `name` in `worker/wrangler.toml`)
    - Production branch: `main`
    - Root directory: `worker`
    - Build command: `npm ci`
    - Deploy command: `npm run deploy` (creates the order tables, then deploys)
-3. After the first deploy, note the address: `https://hwcc-shop.<something>.workers.dev`.
+3. After the first deploy, note the address: `https://hwcc-website.round-paper-0c18.workers.dev`.
    Opening it should show "His Word Christian Centre shop checkout."
 
 ## 3. Yoco (test first)
 1. In the Yoco portal, open the online payments / payment gateway settings and copy the API keys.
    Start with the **test** secret key (`sk_test_…`).
-2. Cloudflare: **Workers → hwcc-shop → Settings → Variables and Secrets → Add**, type **Secret**:
+2. Cloudflare: **Workers → hwcc-website → Settings → Variables and Secrets → Add**, type **Secret**:
    `YOCO_SECRET_KEY` = the test secret key.
-3. Register the webhook (Yoco has no screen for this). On a computer, run, with your key and the workers.dev address:
+3. Register the webhook (Yoco has no screen for this). On a computer, run, with your key in place of sk_test_YOUR_KEY:
    ```
    curl -X POST https://payments.yoco.com/api/webhooks \
      -H "Authorization: Bearer sk_test_YOUR_KEY" -H "Content-Type: application/json" \
-     -d '{"name":"hwcc-shop","url":"https://hwcc-shop.YOUR-SUBDOMAIN.workers.dev/api/yoco/webhook"}'
+     -d '{"name":"hwcc-shop","url":"https://hwcc-website.round-paper-0c18.workers.dev/api/yoco/webhook"}'
    ```
    The reply contains `"secret": "whsec_…"`. Add it as a Secret named `YOCO_WEBHOOK_SECRET`.
-4. Tell Mubarak/Claude the workers.dev address. It goes into `"api"` in `_data/shop.json`, and then we test with
-   Yoco's test card.
+4. Test on https://hiswordchristiancentre.co.za/?shoptest=1 with Yoco's test card: pay, check the "Thank you" banner
+   and the order email.
 
 ## 4. Order emails (Resend)
 1. Sign up at resend.com with **admin@hiswordchristiancentre.co.za**. Create an API key and add it as a Secret
@@ -56,7 +62,8 @@ Do these in order. Never paste keys into chat, email or GitHub: they go into Clo
 ## 5. Going live
 1. Replace `YOCO_SECRET_KEY` with the **live** key (`sk_live_…`).
 2. Register the webhook again with the live key (step 3.3) and replace `YOCO_WEBHOOK_SECRET` with the new secret.
-3. Make one small real purchase and refund it in the Yoco app.
+3. Make one small real purchase (via `?shoptest=1`) and refund it in the Yoco app.
+4. Set `"open": true` in `_data/shop.json` (and `"test": false`). The Shop link appears in the menu.
 
 ## Changing products or prices
 Edit `_data/shop.json` (prices in cents: R250 = `25000`). The website and the checkout both update on the next

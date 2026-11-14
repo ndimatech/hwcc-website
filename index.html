@@ -404,8 +404,8 @@
 
 <!-- ================= SHOP ================= -->
 {%- assign shop = site.data.shop %}
-{%- if shop.open %}
-<section class="sec sec-paper" id="shop" aria-labelledby="shop-h" data-shop data-api="{{ shop.api }}" data-delivery="{{ shop.deliveryCents }}">
+{%- if shop.open or shop.test %}
+<section class="sec sec-paper" id="shop" aria-labelledby="shop-h" data-shop data-api="{{ shop.api }}" data-delivery="{{ shop.deliveryCents }}"{% unless shop.open %} data-shop-test hidden{% endunless %}>
   <div class="wrap rail">
     <p class="eyebrow rail-label">Shop</p>
     <div class="rail-body">
@@ -510,7 +510,7 @@
 </footer>
 
 <script src="assets/js/main.js" defer></script>
-{%- if site.data.shop.open %}
+{%- if site.data.shop.open or site.data.shop.test %}
 <script src="assets/js/shop.js" defer></script>
 {%- endif %}
 <script data-goatcounter="https://hwcc.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>

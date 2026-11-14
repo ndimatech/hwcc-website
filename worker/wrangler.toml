@@ -1,13 +1,14 @@
 # His Word Christian Centre shop checkout. Runs in the church's Cloudflare account.
 # Setup steps: see SHOP-SETUP.md at the repo root.
-name = "hwcc-shop"
+name = "hwcc-website"   # must match the Worker name in Cloudflare (Workers Builds)
 main = "src/index.js"
 compatibility_date = "2026-10-01"
 workers_dev = true
+preview_urls = false   # one address only; previews would share the real database
 
 [[d1_databases]]
 binding = "DB"
-database_name = "hwcc-shop"
+database_name = "hwcc-website"   # must match the Worker name in Cloudflare (Workers Builds)
 database_id = "287e15a1-deb0-4550-8020-2b2ddb434717"   # church account, created 14 Nov 2026
 migrations_dir = "migrations"
 

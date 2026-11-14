@@ -5,6 +5,16 @@
 (function () {
   var shop = document.querySelector('[data-shop]');
   if (!shop) return;
+  // Test mode: the shop is hidden from the public and shows only at /?shoptest=1 (remembered for this visit).
+  if (shop.hasAttribute('data-shop-test')) {
+    var on = /[?&]shoptest=1/.test(window.location.search);
+    try { if (on) sessionStorage.setItem('hwcc-shoptest', '1'); else on = sessionStorage.getItem('hwcc-shoptest') === '1'; } catch (e) {}
+    if (!on) return;
+    shop.hidden = false;
+    var note = document.createElement('p');
+    note.className = 'shop-note'; note.textContent = 'TEST MODE: this shop is not public yet.';
+    shop.querySelector('.shop-head').prepend(note);
+  }
   var API = (shop.getAttribute('data-api') || '').replace(/\/$/, '');
   var DELIVERY = Number(shop.getAttribute('data-delivery')) || 0;
   var KEY = 'hwcc-cart';
