@@ -78,8 +78,8 @@
       <li><a href="#sermons">Sermons</a></li>
       <li><a href="#ministries">Ministries</a></li>
       <li><a href="#events">Events</a></li>
+      {%- if site.data.shop.open or site.data.shop.test %}<li{% unless site.data.shop.open %} data-shop-test-link hidden{% endunless %}><a href="#shop">Shop</a></li>{% endif %}
       <li><a href="#give">Give</a></li>
-      {%- if site.data.shop.open %}<li><a href="#shop">Shop</a></li>{% endif %}
     </ul>
     <div class="nav-cta">
       <a class="live" data-goatcounter-click="watch-online" data-goatcounter-title="Watch online / live button" href="{{ c.youtube }}" target="_blank" rel="noopener" data-live data-live-href="{{ c.livestream }}" data-online-href="{{ c.youtube }}"><span class="dot" aria-hidden="true"></span><span data-live-label>Watch online</span></a>
@@ -102,8 +102,8 @@
     <li><a href="#sermons">Sermons</a></li>
     <li><a href="#ministries">Ministries</a></li>
     <li><a href="#events">Events</a></li>
+    {%- if site.data.shop.open or site.data.shop.test %}<li{% unless site.data.shop.open %} data-shop-test-link hidden{% endunless %}><a href="#shop">Shop</a></li>{% endif %}
     <li><a href="#give">Give</a></li>
-    {%- if site.data.shop.open %}<li><a href="#shop">Shop</a></li>{% endif %}
   </ul>
   <div class="mm-foot">
     <a class="btn btn-light" data-goatcounter-click="plan-a-visit" href="#visit">Plan a visit</a>
@@ -376,36 +376,10 @@
   </div>
 </section>
 
-<!-- ================= 10 GIVE ================= -->
-<section class="sec sec-sand" id="give" aria-labelledby="give-h">
-  <div class="wrap rail">
-    <p class="eyebrow rail-label">Giving</p>
-    <div class="rail-body give">
-      <div class="stack">
-        <h2 id="give-h" class="h2" data-reveal>Give with purpose.</h2>
-        <blockquote class="verse max-42"><p>“Honor the Lord with your wealth and with the best part of everything you produce.”</p><cite>Proverbs 3:9</cite></blockquote>
-        {%- if c.giving.online_link and c.giving.online_link != "" %}
-        <a class="btn btn-outline" data-goatcounter-click="give-online" href="{{ c.giving.online_link }}" target="_blank" rel="noopener">Give online</a>
-        {%- endif %}
-      </div>
-      <div class="eft">
-        <p class="eyebrow eyebrow-grey">EFT details</p>
-        <dl>
-          <dt>Bank</dt><dd>{% if c.giving.bank and c.giving.bank != "" %}{{ c.giving.bank }}{% else %}<span class="tbc">[BANK NAME]</span>{% endif %}</dd>
-          <dt>Account name</dt><dd>{% if c.giving.account_name and c.giving.account_name != "" %}{{ c.giving.account_name }}{% else %}<span class="tbc">[ACCOUNT NAME]</span>{% endif %}</dd>
-          <dt>Account no.</dt><dd>{% if c.giving.account_number and c.giving.account_number != "" %}{{ c.giving.account_number }}{% else %}<span class="tbc">[ACCOUNT NUMBER]</span>{% endif %}</dd>
-          <dt>Branch code</dt><dd>{% if c.giving.branch_code and c.giving.branch_code != "" %}{{ c.giving.branch_code }}{% else %}<span class="tbc">[BRANCH CODE]</span>{% endif %}</dd>
-          {% if c.giving.reference and c.giving.reference != "" %}<dt>Reference</dt><dd>{% if c.giving.reference and c.giving.reference != "" %}{{ c.giving.reference }}{% else %}<span class="tbc">[GIVING REFERENCE]</span>{% endif %}</dd>{% endif %}
-        </dl>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ================= SHOP ================= -->
 {%- assign shop = site.data.shop %}
 {%- if shop.open or shop.test %}
-<section class="sec sec-paper" id="shop" aria-labelledby="shop-h" data-shop data-api="{{ shop.api }}" data-delivery="{{ shop.deliveryCents }}"{% unless shop.open %} data-shop-test hidden{% endunless %}>
+<section class="sec sec-sand" id="shop" aria-labelledby="shop-h" data-shop data-api="{{ shop.api }}" data-delivery="{{ shop.deliveryCents }}"{% unless shop.open %} data-shop-test hidden{% endunless %}>
   <div class="wrap rail">
     <p class="eyebrow rail-label">Shop</p>
     <div class="rail-body">
@@ -456,6 +430,33 @@
 </section>
 {%- endif %}
 
+<!-- ================= 10 GIVE ================= -->
+<section class="sec {% if site.data.shop.open %}sec-paper{% else %}sec-sand{% endif %}" id="give" aria-labelledby="give-h">
+  <div class="wrap rail">
+    <p class="eyebrow rail-label">Giving</p>
+    <div class="rail-body give">
+      <div class="stack">
+        <h2 id="give-h" class="h2" data-reveal>Give with purpose.</h2>
+        <blockquote class="verse max-42"><p>“Honor the Lord with your wealth and with the best part of everything you produce.”</p><cite>Proverbs 3:9</cite></blockquote>
+        {%- if c.giving.online_link and c.giving.online_link != "" %}
+        <a class="btn btn-outline" data-goatcounter-click="give-online" href="{{ c.giving.online_link }}" target="_blank" rel="noopener">Give online</a>
+        {%- endif %}
+      </div>
+      <div class="eft">
+        <p class="eyebrow eyebrow-grey">EFT details</p>
+        <dl>
+          <dt>Bank</dt><dd>{% if c.giving.bank and c.giving.bank != "" %}{{ c.giving.bank }}{% else %}<span class="tbc">[BANK NAME]</span>{% endif %}</dd>
+          <dt>Account name</dt><dd>{% if c.giving.account_name and c.giving.account_name != "" %}{{ c.giving.account_name }}{% else %}<span class="tbc">[ACCOUNT NAME]</span>{% endif %}</dd>
+          <dt>Account no.</dt><dd>{% if c.giving.account_number and c.giving.account_number != "" %}{{ c.giving.account_number }}{% else %}<span class="tbc">[ACCOUNT NUMBER]</span>{% endif %}</dd>
+          <dt>Branch code</dt><dd>{% if c.giving.branch_code and c.giving.branch_code != "" %}{{ c.giving.branch_code }}{% else %}<span class="tbc">[BRANCH CODE]</span>{% endif %}</dd>
+          {% if c.giving.reference and c.giving.reference != "" %}<dt>Reference</dt><dd>{% if c.giving.reference and c.giving.reference != "" %}{{ c.giving.reference }}{% else %}<span class="tbc">[GIVING REFERENCE]</span>{% endif %}</dd>{% endif %}
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 </main>
 
 <!-- ================= FOOTER ================= -->
@@ -484,6 +485,9 @@
         <a href="#sermons">Sermons</a>
         <a href="#ministries">Ministries</a>
         <a href="#events">Events</a>
+        {%- if site.data.shop.open %}
+        <a href="#shop">Shop</a>
+        {%- endif %}
         <a href="#give">Give</a>
         <a href="#visit">Plan a visit</a>
       </nav>

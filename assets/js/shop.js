@@ -11,6 +11,9 @@
     try { if (on) sessionStorage.setItem('hwcc-shoptest', '1'); else on = sessionStorage.getItem('hwcc-shoptest') === '1'; } catch (e) {}
     if (!on) return;
     shop.hidden = false;
+    document.querySelectorAll('[data-shop-test-link]').forEach(function (el) { el.hidden = false; });
+    var give = document.getElementById('give');   // keep the backgrounds alternating: shop sand, give paper
+    if (give) { give.classList.remove('sec-sand'); give.classList.add('sec-paper'); }
     var note = document.createElement('p');
     note.className = 'shop-note'; note.textContent = 'TEST MODE: this shop is not public yet.';
     shop.querySelector('.shop-head').prepend(note);
