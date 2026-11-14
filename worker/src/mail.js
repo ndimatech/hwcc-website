@@ -38,7 +38,7 @@ export function orderAlert(o) {
       `Email: ${o.email}`,
       o.notes && `Notes: ${o.notes}`, "",
       `Order number: ${orderNo(o.order_no)} (the buyer has this on their receipt).`,
-      `Made to order: the buyer was told about 2 weeks.`,
+      `Made to order: the buyer was told 2 weeks.`,
     ),
   };
 }
@@ -54,7 +54,7 @@ export function receipt(o) {
       o.fulfilment === "deliver"
         ? `We'll courier it to: ${addressText(o)}`
         : `Collect it at His Word Christian Centre. We'll let you know when it's ready.`,
-      `Everything is made to order, so please allow about 2 weeks.`, "",
+      `Everything is made to order, so please allow 2 weeks.`, "",
       `Order number: ${orderNo(o.order_no)}`,
       `Questions? Reply to this email or contact the church office.`,
       `Returns and refunds: https://hiswordchristiancentre.co.za/returns.html`, "",

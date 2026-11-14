@@ -39,7 +39,7 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
 
 ## Shop (merchandise, built Nov 2026; full price R11,000, care plan +R200/month)
 - Catalogue: `_data/shop.json` (6 items, 34 colourways; T-shirt R250 S–4XL, sweater R400 and hoodie R450 S–2XL).
-  Made to order, about 2 weeks. Collect at church free, or flat delivery R149 (South Africa; church's choice 14 Nov 2026).
+  Made to order, 2 weeks (wording changed from "about" 14 Nov). Collect at church free, or flat delivery R149 (South Africa; church's choice 14 Nov 2026).
   The site and the checkout BOTH read this file; prices in cents. `"open": false` hides the shop, empty `"api"` = "opens soon".
   `"test": true` (while closed) shows it only at `/?shoptest=1` (sessionStorage), with a TEST MODE note.
 - Shop section sits ABOVE Give (14 Nov 2026, Mubarak). Shop is sand, Give MAROON when open (Mubarak wanted a clear split);

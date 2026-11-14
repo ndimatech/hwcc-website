@@ -4,7 +4,7 @@
   "test": true,
   "api": "https://hwcc-website.round-paper-0c18.workers.dev",
   "deliveryCents": 14900,
-  "leadTime": "Made to order. Ready in about 2 weeks.",
+  "leadTime": "Made to order. Ready in 2 weeks.",
   "products": [
     {
       "id": "tee-elihle",

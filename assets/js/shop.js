@@ -111,7 +111,7 @@
         '<div class="totals" data-totals></div>' +
         '<button type="submit" class="btn btn-dark" data-pay>Pay</button>' +
         '<p class="checkout-msg" data-checkout-msg role="status"></p>' +
-        '<p class="product-detail">Payment is by card through Yoco\'s secure checkout. Made to order: ready in about 2 weeks. <a href="returns.html" target="_blank" rel="noopener">Returns and refunds</a></p>' +
+        '<p class="product-detail">Payment is by card through Yoco\'s secure checkout. Made to order: ready in 2 weeks. <a href="returns.html" target="_blank" rel="noopener">Returns and refunds</a></p>' +
       '</form>' +
     '</div>';
   document.body.appendChild(drawer);
@@ -229,7 +229,7 @@
         fetch(API + '/api/orders/' + encodeURIComponent(orderId)).then(function (r) { return r.json(); }).then(function (o) {
           if (o.status === 'paid') {
             save([]);
-            banner('Thank you! Order ' + esc(o.orderNo) + ' is paid.', 'Please keep your order number. Everything is made to order, so allow about 2 weeks; we\'ll let you know when it\'s ' + (o.fulfilment === 'deliver' ? 'on its way.' : 'ready to Collect At Church.'));
+            banner('Thank you! Order ' + esc(o.orderNo) + ' is paid.', 'Please keep your order number. Everything is made to order, so allow 2 weeks; we\'ll let you know when it\'s ' + (o.fulfilment === 'deliver' ? 'on its way.' : 'ready to Collect At Church.'));
             count('shop-paid');
           } else if (o.status === 'pending' && ++tries < 20) {
             setTimeout(poll, 3000);
