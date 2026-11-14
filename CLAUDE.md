@@ -42,8 +42,9 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   Made to order, about 2 weeks. Collect at church free, or flat delivery R149 (South Africa; church's choice 14 Nov 2026).
   The site and the checkout BOTH read this file; prices in cents. `"open": false` hides the shop, empty `"api"` = "opens soon".
   `"test": true` (while closed) shows it only at `/?shoptest=1` (sessionStorage), with a TEST MODE note.
-- Shop section sits ABOVE Give (14 Nov 2026, Mubarak). Shop is sand, Give paper when open; Give stays sand while the shop is
-  hidden (Liquid + shop.js test mode) so backgrounds keep alternating. Shop menu link before Give (desktop, mobile, footer).
+- Shop section sits ABOVE Give (14 Nov 2026, Mubarak). Shop is sand, Give MAROON when open (Mubarak wanted a clear split);
+  Give stays sand while the shop is hidden (Liquid + shop.js test mode). CSS/JS links carry ?v=YYYYMMDDx: bump it when
+  changing style.css, main.js or shop.js (GitHub Pages caches ~10 min; old shop.js once made the sections look merged). Shop menu link before Give (desktop, mobile, footer).
 - Front-end: Shop section in index.html (cards rendered by Liquid), `assets/js/shop.js` (cart in localStorage, drawer,
   POST to the worker, return banner via `?order=<id>`). Images `assets/img/shop/` cropped from the church's AI mock-ups.
 - Checkout: `worker/` = Cloudflare Worker `hwcc-website` (https://hwcc-website.round-paper-0c18.workers.dev, Workers Builds from

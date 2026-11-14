@@ -12,8 +12,8 @@
     if (!on) return;
     shop.hidden = false;
     document.querySelectorAll('[data-shop-test-link]').forEach(function (el) { el.hidden = false; });
-    var give = document.getElementById('give');   // keep the backgrounds alternating: shop sand, give paper
-    if (give) { give.classList.remove('sec-sand'); give.classList.add('sec-paper'); }
+    var give = document.getElementById('give');   // shop sand, then Give on maroon so the two are clearly separate
+    if (give) { give.classList.remove('sec-sand'); give.classList.add('sec-maroon'); }
     var note = document.createElement('p');
     note.className = 'shop-note'; note.textContent = 'TEST MODE: this shop is not public yet.';
     shop.querySelector('.shop-head').prepend(note);

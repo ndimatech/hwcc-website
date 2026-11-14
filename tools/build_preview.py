@@ -43,10 +43,11 @@ def inline(html):
     css = re.sub(r"url\('\.\./fonts/([^']+)'\)", lambda m: f"url('{b64('assets/fonts/' + m.group(1), 'font/woff2')}')", css)
     js = (ROOT / "assets/js/main.js").read_text(encoding="utf-8")
     html = re.sub(r'\s*<link rel="preload"[^>]*>', "", html)
-    html = html.replace('<link rel="stylesheet" href="assets/css/style.css">', "<style>\n" + css + "\n</style>")
-    html = html.replace('<script src="assets/js/main.js" defer></script>', "<script>\n" + js + "\n</script>")
+    html = re.sub(r'<link rel="stylesheet" href="assets/css/style\.css(\?v=[^"]*)?">', lambda m: "<style>\n" + css + "\n</style>", html)
+    html = re.sub(r'<script src="assets/js/main\.js(\?v=[^"]*)?" defer></script>', lambda m: "<script>\n" + js + "\n</script>", html)
     if (ROOT / "assets/js/shop.js").exists():
-        html = html.replace('<script src="assets/js/shop.js" defer></script>', "<script>\n" + (ROOT / "assets/js/shop.js").read_text(encoding="utf-8") + "\n</script>")
+        shop_js = (ROOT / "assets/js/shop.js").read_text(encoding="utf-8")
+        html = re.sub(r'<script src="assets/js/shop\.js(\?v=[^"]*)?" defer></script>', lambda m: "<script>\n" + shop_js + "\n</script>", html)
     html = re.sub(r'(src|content|data-img)="(assets/img/[^"]+\.(webp|jpg|png))"',
                   lambda m: f'{m.group(1)}="{b64(m.group(2), "image/" + ("jpeg" if m.group(3) == "jpg" else m.group(3)))}"', html)
     html = html.replace('<link rel="icon" href="favicon.svg" type="image/svg+xml">',

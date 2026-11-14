@@ -390,3 +390,11 @@ section[id] { scroll-margin-top: 72px; }
 .order-banner p { font-size: 14px; line-height: 1.6; }
 .order-banner button { align-self: flex-start; margin-top: 6px; min-height: 40px; padding: 0 16px; border: 1px solid var(--line-dark); border-radius: 10px; background: none; color: var(--paper); font: 500 13px var(--text); cursor: pointer; }
 body.drawer-open { overflow: hidden; }
+
+/* Give on maroon (once the shop is open, so Shop and Give are clearly separate) */
+#give.sec-maroon .h2 { color: var(--paper); }
+#give.sec-maroon .rail-label { color: var(--rose); }
+#give.sec-maroon .verse { border-left-color: var(--rose); }
+#give.sec-maroon .verse p { color: rgba(253, 253, 252, .78); }
+#give.sec-maroon .verse cite { color: var(--paper); }
+#give.sec-maroon .eft { border-color: transparent; }
