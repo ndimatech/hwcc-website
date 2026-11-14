@@ -39,7 +39,7 @@ Do these in order. Never paste keys into chat, email or GitHub: they go into Clo
 1. In the Yoco portal, open the online payments / payment gateway settings and copy the API keys.
    Start with the **test** secret key (`sk_test_…`).
 2. Cloudflare: **Workers → hwcc-website → Settings → Variables and Secrets → Add**, type **Secret**:
-   `YOCO_SECRET_KEY` = the test secret key.
+   `YOCO_SECRET_KEY` = the test secret key. The name must be exactly `YOCO_SECRET_KEY` (done 14 Nov 2026, with the webhook).
 3. Register the webhook (Yoco has no screen for this). On a computer, run, with your key in place of sk_test_YOUR_KEY:
    ```
    curl -X POST https://payments.yoco.com/api/webhooks \
