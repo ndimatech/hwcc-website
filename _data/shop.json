@@ -343,6 +343,26 @@
           "image": "assets/img/shop/sweater-cross-navy.webp"
         }
       ]
+    },
+    {
+      "id": "payment-test",
+      "testOnly": true,
+      "name": "Payment test (not for sale)",
+      "kind": "Test",
+      "priceCents": 1000,
+      "sizes": [
+        "One size"
+      ],
+      "detail": "R10 item for checking live Yoco payments. Only shows in test mode (?shoptest=1) and can't be bought once the shop is open. Refund it in Yoco after testing.",
+      "colours": [
+        {
+          "id": "test",
+          "name": "Test item",
+          "garment": "#A0495D",
+          "ink": "#FFFFFF",
+          "image": "assets/img/shop/tee-cross-black.webp"
+        }
+      ]
     }
   ],
   "_api_note": "api = the checkout (Cloudflare Worker hwcc-website). open=false + test=true: shop hidden, but visible at /?shoptest=1 for testing."

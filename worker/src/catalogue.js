@@ -16,6 +16,7 @@ export function priceOrder(items, fulfilment, shop = SHOP) {
   for (const it of items) {
     const p = shop.products.find((x) => x.id === it?.productId);
     if (!p) return { error: "unknown_product" };
+    if (p.testOnly && (shop.open || !shop.test)) return { error: "unknown_product" };   // R10 payment test: test mode only
     const c = p.colours.find((x) => x.id === it.colourId);
     if (!c) return { error: "unknown_colour" };
     if (!p.sizes.includes(it.size)) return { error: "unknown_size" };

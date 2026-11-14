@@ -62,10 +62,10 @@ Do these in order. Never paste keys into chat, email or GitHub: they go into Clo
 ## 5. Going live
 1. Replace `YOCO_SECRET_KEY` with the **live** key (`sk_live_…`).
 2. Register the webhook again with the live key (step 3.3) and replace `YOCO_WEBHOOK_SECRET` with the new secret.
-3. Make one small real purchase (via `?shoptest=1`) and refund it in the Yoco app.
+3. Make one small real purchase via `?shoptest=1`: the R10 "Payment test" item, Collect at church. Refund it in the Yoco app.
    Then clear the test orders so real ones start at HWCC-1001: Cloudflare → **Storage & databases → D1 → hwcc-shop →
    Console**, run `DELETE FROM orders; DELETE FROM processed_events; DELETE FROM email_log;`
-4. Set `"open": true` in `_data/shop.json` (and `"test": false`). The Shop link appears in the menu.
+4. Set `"open": true` in `_data/shop.json` (and `"test": false`), and delete the `payment-test` product. The Shop link appears in the menu.
 
 ## Changing products or prices
 Edit `_data/shop.json` (prices in cents: R250 = `25000`). The website and the checkout both update on the next

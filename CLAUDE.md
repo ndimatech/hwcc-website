@@ -68,5 +68,7 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   (Claude Doc https://claude.ai/artifact/Q6yJVhNayRaeoDryX6HFWo): 7-day unworn return/exchange, 6-month faults (CPA s56),
   refunds to card within 30 days. Approved 14 Nov; live at /returns.html (noindex until the
   shop opens), linked from the shop note, cart drawer, footer (once open) and buyer receipt. Keep returns.html and the doc in step.
+- R10 `payment-test` product (testOnly) in shop.json: shown only in ?shoptest=1, worker refuses it unless closed + test.
+  For the first live-key payment; delete it from shop.json at launch. Collection times: church fills them in per message.
 - Tag new shop buttons for GoatCounter; shop.js already counts shop-add, shop-checkout, shop-paid.
 

@@ -56,7 +56,7 @@
   <link rel="preload" href="assets/fonts/switzer-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/img/hero.webp" as="image">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261114d">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261114e">
   <script>document.documentElement.classList.add('js');
     window.HWCC_SERVICES = [{% for sv in c.services %}{ "day": "{{ sv.day }}", "start": "{{ sv.start }}", "end": "{{ sv.end }}" }{% unless forloop.last %}, {% endunless %}{% endfor %}];</script>
 </head>
@@ -395,8 +395,9 @@
       </div>
       <ul class="shop-grid">
         {%- for p in shop.products %}
+        {%- if p.testOnly and shop.open %}{% continue %}{% endif %}
         {%- assign first = p.colours | first %}
-        <li class="product" data-product="{{ p.id }}" data-kind="{{ p.kind }}" data-name="{{ p.name }}" data-price="{{ p.priceCents }}">
+        <li class="product" data-product="{{ p.id }}"{% if p.testOnly %} data-test-item hidden{% endif %} data-kind="{{ p.kind }}" data-name="{{ p.name }}" data-price="{{ p.priceCents }}">
           <div class="product-img"><img src="{{ first.image }}" alt="{{ p.name }}, {{ first.name }}" width="1000" height="750" loading="lazy" data-product-img></div>
           <div class="product-body">
             <p class="product-meta"><span>{{ p.kind }}</span><span class="product-price">R{{ p.priceCents | divided_by: 100 }}</span></p>
@@ -414,7 +415,7 @@
               <legend>Size</legend>
               <div class="sizes">
                 {%- for sz in p.sizes %}
-                <label class="size"><input type="radio" name="{{ p.id }}-size" value="{{ sz }}"><span>{{ sz }}</span></label>
+                <label class="size"><input type="radio" name="{{ p.id }}-size" value="{{ sz }}"{% if p.sizes.size == 1 %} checked{% endif %}><span>{{ sz }}</span></label>
                 {%- endfor %}
               </div>
             </fieldset>
@@ -514,9 +515,9 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20261114d" defer></script>
+<script src="assets/js/main.js?v=20261114e" defer></script>
 {%- if site.data.shop.open or site.data.shop.test %}
-<script src="assets/js/shop.js?v=20261114d" defer></script>
+<script src="assets/js/shop.js?v=20261114e" defer></script>
 {%- endif %}
 <script data-goatcounter="https://hwcc.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>

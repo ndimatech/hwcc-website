@@ -48,3 +48,10 @@ test("webhook signatures verify and reject tampering or old timestamps", async (
   assert.equal(await verifyWebhook(MOCK_WEBHOOK_SECRET, h(sig), '{"a":2}'), false);
   assert.equal(await verifyWebhook(MOCK_WEBHOOK_SECRET, h(sig, String(Number(ts) - 600)), body), false);
 });
+
+test("R10 payment-test item: only in test mode, never once open", () => {
+  const item = [{ productId: "payment-test", colourId: "test", size: "One size", qty: 1 }];
+  assert.equal(priceOrder(item, "collect", { ...SHOP, open: false, test: true }).totalCents, 1000);
+  assert.equal(priceOrder(item, "collect", { ...SHOP, open: true, test: true }).error, "unknown_product");
+  assert.equal(priceOrder(item, "collect", { ...SHOP, open: true, test: false }).error, "unknown_product");
+});

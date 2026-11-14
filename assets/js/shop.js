@@ -12,6 +12,7 @@
     if (!on) return;
     shop.hidden = false;
     document.querySelectorAll('[data-shop-test-link]').forEach(function (el) { el.hidden = false; });
+    shop.querySelectorAll('[data-test-item]').forEach(function (el) { el.hidden = false; });   // R10 payment-test item
     var give = document.getElementById('give');   // shop sand, then Give on maroon so the two are clearly separate
     if (give) { give.classList.remove('sec-sand'); give.classList.add('sec-maroon'); }
     var note = document.createElement('p');
