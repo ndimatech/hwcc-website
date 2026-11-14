@@ -66,8 +66,9 @@ def main():
         shutil.rmtree(out)
     out.mkdir()
     (out / "index.html").write_text(html, encoding="utf-8")
-    if (ROOT / "returns.html").exists():
-        (out / "returns.html").write_text(render(site, "returns.html"), encoding="utf-8")
+    for page in ("returns.html", "privacy.html"):
+        if (ROOT / page).exists():
+            (out / page).write_text(render(site, page), encoding="utf-8")
     shutil.copytree(ROOT / "assets", out / "assets")
     shutil.copy(ROOT / "favicon.svg", out / "favicon.svg")
     target = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "HWCC-homepage-preview.html"

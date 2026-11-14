@@ -122,3 +122,8 @@ Products live in `_data/shop.json`. **The checkout charges whatever this file sa
 
 Setting up or changing the payment side (Cloudflare, Yoco, Resend): see `SHOP-SETUP.md`.
 
+
+
+## Privacy notice
+`privacy.html` explains what the shop collects and how long it is kept. If retention periods or the companies involved
+change (payments, email, hosting), update this page in the same change. Ask Ndimatech if unsure.

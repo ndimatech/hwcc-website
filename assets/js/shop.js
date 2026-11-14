@@ -111,7 +111,7 @@
         '<div class="totals" data-totals></div>' +
         '<button type="submit" class="btn btn-dark" data-pay>Pay</button>' +
         '<p class="checkout-msg" data-checkout-msg role="status"></p>' +
-        '<p class="product-detail">Payment is by card through Yoco\'s secure checkout. Made to order: ready in 2 weeks. <a href="returns.html" target="_blank" rel="noopener">Returns and refunds</a></p>' +
+        '<p class="product-detail">Payment is by card through Yoco\'s secure checkout. Made to order: ready in 2 weeks. <a href="returns.html" target="_blank" rel="noopener">Returns and refunds</a> · <a href="privacy.html" target="_blank" rel="noopener">Privacy</a></p>' +
       '</form>' +
     '</div>';
   document.body.appendChild(drawer);
@@ -158,7 +158,7 @@
       var p = products[l.p], col = p.colours[l.c];
       return '<li class="cart-line"><img src="' + esc(col.img) + '" alt="">' +
         '<div><h3>' + esc(p.name) + '</h3><p>' + esc(col.name) + ' · Size ' + esc(l.s) + '</p>' +
-        '<div class="qty"><button type="button" data-i="' + i + '" data-act="minus" aria-label="One fewer">−</button><span>' + l.q + '</span>' +
+        '<div class="qty"><button type="button" data-i="' + i + '" data-act="minus" aria-label="One fewer">−</button><span>' + Number(l.q) + '</span>' +
         '<button type="button" data-i="' + i + '" data-act="plus" aria-label="One more">+</button></div></div>' +
         '<div class="line-end">' + R(p.price * l.q) + '<button type="button" class="line-remove" data-i="' + i + '" data-act="remove">Remove</button></div></li>';
     }).join('');
@@ -172,7 +172,12 @@
   var ERRORS = {
     missing_details: 'Please fill in your name, cellphone and email.',
     invalid_phone: 'Please check your cellphone number.',
-    invalid_email: 'Please check your email address.',
+    invalid_email: 'Please check your email address (one address, no commas).',
+    invalid_province: 'Please choose your province.',
+    unknown_product: 'An item in your cart is no longer available. Please remove it and try again.',
+    unknown_colour: 'An item in your cart is no longer available. Please remove it and try again.',
+    unknown_size: 'An item in your cart is no longer available. Please remove it and try again.',
+    invalid_quantity: 'Please check the quantities in your cart (up to 20 each).',
     missing_address: 'Please fill in your street address and city or town.',
     invalid_postal_code: 'Please enter a 4-digit postal code.',
     too_many_requests: 'Too many tries. Please wait a minute and try again.',
@@ -201,7 +206,6 @@
       .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
       .then(function (res) {
         if (res.ok && res.d.redirectUrl) {
-          try { localStorage.setItem(KEY + '-pending', res.d.orderId); } catch (err) {}
           window.location.href = res.d.redirectUrl; return;
         }
         cmsg.textContent = ERRORS[res.d && res.d.error] || 'Something went wrong. Please try again.';

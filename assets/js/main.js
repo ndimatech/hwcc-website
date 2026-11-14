@@ -88,11 +88,13 @@
   }
 
   /* "Watch live": red dot + "Watch live" only during service times, "Watch online" otherwise.
-     Service times come from _data/church.yml (written into the page as window.HWCC_SERVICES).
+     Service times come from _data/church.yml (written into the page as JSON in #hwcc-services).
      Times are South African time (SAST, UTC+2, no daylight saving).
      The label switches on EARLY_MINUTES before a service starts. */
   var DAYS = { sunday: 0, monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6 };
-  var SERVICE_TIMES = (window.HWCC_SERVICES || []).map(function (s) {
+  var SERVICES = [];
+  try { SERVICES = JSON.parse((document.getElementById('hwcc-services') || {}).textContent || '[]'); } catch (e) {}
+  var SERVICE_TIMES = SERVICES.map(function (s) {
     return { day: DAYS[String(s.day).toLowerCase()], start: s.start, end: s.end };
   }).filter(function (s) { return s.day !== undefined && s.start && s.end; });
   var EARLY_MINUTES = 15;

@@ -18,6 +18,10 @@ name = "CHECKOUT_LIMITER"
 namespace_id = "2101"
 simple = { limit = 8, period = 60 }
 
+# Daily privacy clean-up at 01:00 UTC (03:00 in South Africa). See cleanUp() in src/index.js.
+[triggers]
+crons = ["0 1 * * *"]
+
 [vars]
 SITE_URL = "https://hiswordchristiancentre.co.za"
 ORDER_EMAIL = "admin@hiswordchristiancentre.co.za"

@@ -27,7 +27,30 @@ function json(data, status = 200, headers = {}) {
   return new Response(JSON.stringify(data), { status, headers: { "Content-Type": "application/json", "Cache-Control": "no-store", ...headers } });
 }
 
+// Retention (14 Nov 2026), as stated on privacy.html: unpaid orders 14 days, email and webhook logs
+// 120 days, paid orders 5 years (the period SARS can ask for financial records). Runs daily (wrangler.toml).
+const DAY = 86400000;
+export const RETENTION = { unpaidDays: 14, logDays: 120, paidYears: 5 };
+export async function cleanUp(env, now = Date.now()) {
+  const steps = [
+    ["DELETE FROM orders WHERE status IN ('pending', 'cancelled') AND payment_id IS NULL AND created_at < ?", now - RETENTION.unpaidDays * DAY],
+    ["DELETE FROM orders WHERE created_at < ?", now - RETENTION.paidYears * 365 * DAY],
+    ["DELETE FROM email_log WHERE created_at < ?", now - RETENTION.logDays * DAY],
+    ["DELETE FROM processed_events WHERE received_at < ?", now - RETENTION.logDays * DAY],
+  ];
+  const deleted = {};
+  for (const [sql, cutoff] of steps) {
+    const r = await env.DB.prepare(sql).bind(cutoff).run().catch((err) => { console.error(err); return null; });
+    deleted[sql.split(" ")[2] + (sql.includes("payment_id IS NULL") ? " (unpaid)" : "")] = r?.meta?.changes ?? "error";
+  }
+  console.log("retention clean-up", JSON.stringify(deleted));
+  return deleted;
+}
+
 export default {
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(cleanUp(env));
+  },
   async fetch(request, env) {
     const url = new URL(request.url);
     const p = url.pathname, m = request.method;

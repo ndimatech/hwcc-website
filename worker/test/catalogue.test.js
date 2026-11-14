@@ -57,3 +57,10 @@ test("R10 payment-test item: only in test mode, never once open", () => {
   assert.equal(priceOrder(item, "collect", { ...shop, open: true, test: true }).error, "unknown_product");
   assert.equal(priceOrder(item, "collect", { ...shop, open: true, test: false }).error, "unknown_product");
 });
+
+test("email: one address only, commas and semicolons refused", () => {
+  const base = { name: "T", phone: "0821234567", fulfilment: "collect" };
+  assert.equal(checkCustomer({ ...base, email: "thandi@gmail.com" }).error, undefined);
+  assert.equal(checkCustomer({ ...base, email: "thandi@gmail.com,x" }).error, "invalid_email");
+  assert.equal(checkCustomer({ ...base, email: "thandi@gmail.com;y@z.co" }).error, "invalid_email");
+});

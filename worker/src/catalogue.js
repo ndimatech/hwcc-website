@@ -40,7 +40,8 @@ export function checkCustomer(body) {
   if (!customer.name || !customer.phone || !customer.email) return { error: "missing_details" };
   const digits = customer.phone.replace(/[\s()-]/g, "");
   if (!/^(\+?27|0)\d{9}$/.test(digits)) return { error: "invalid_phone" };
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(customer.email)) return { error: "invalid_email" };
+  // One address only: commas and semicolons would make the mailer send to a second address (14 Nov 2026).
+  if (!/^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]{2,}$/.test(customer.email)) return { error: "invalid_email" };
   if (body.fulfilment !== "deliver") return { customer, address: null };
   const a = body.address || {};
   const address = { street: clean(a.street, 120), suburb: clean(a.suburb, 60), city: clean(a.city, 60), province: clean(a.province, 30), postalCode: clean(a.postalCode, 4) };

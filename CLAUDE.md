@@ -3,7 +3,8 @@
 One-page Jekyll site for His Word Christian Centre (KwaThema), hosted on GitHub Pages from `main`.
 Live at https://hiswordchristiancentre.co.za (custom domain via the CNAME file; HTTPS enforced). Verify changes in the
 user's Chrome (the sandbox network can't reach the site).
-Built and maintained by Ndimatech (Mubarak). Content lives in `_data/*.yml`; `index.html` is the Liquid template.
+Built and maintained by Ndimatech (Mubarak). This repo is PUBLIC: keep pricing, invoices and other business notes
+out of it (they live in the private NdimaTech project). Content lives in `_data/*.yml`; `index.html` is the Liquid template.
 UPDATING.md is the human guide. Keep it in step with any change to the data format.
 
 ## Weekly sermon update (most common request)
@@ -37,7 +38,7 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   watch-online / watch-live (set by main.js during service times), sermon: <title>, social-*, give-online, event-more-info: <name>).
   Tag any new important button the same way. count.js ignores localhost and file:// previews.
 
-## Shop (merchandise, built Nov 2026; full price R11,000, care plan +R200/month)
+## Shop (merchandise, built Nov 2026)
 - Catalogue: `_data/shop.json` (6 items, 34 colourways; T-shirt R250 S–4XL, sweater R400 and hoodie R450 S–2XL).
   Made to order, 2 weeks (wording changed from "about" 14 Nov). Collect at church free, or flat delivery R149 (South Africa; church's choice 14 Nov 2026).
   The site and the checkout BOTH read this file; prices in cents. `"open": false` hides the shop, empty `"api"` = "opens soon".
@@ -70,5 +71,12 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   shop opens), linked from the shop note, cart drawer, footer (once open) and buyer receipt. Keep returns.html and the doc in step.
 - R10 `payment-test` product (testOnly) in shop.json: shown only in ?shoptest=1, worker refuses it unless closed + test.
   For the first live-key payment; delete it from shop.json at launch. Collection times: church fills them in per message.
+- Privacy (14 Nov 2026): privacy.html (linked in footer, cart, returns page, receipt; in sitemap). Daily cron 01:00 UTC
+  runs cleanUp() in worker/src/index.js: unpaid orders 14 days, email_log + processed_events 120 days, paid orders
+  5 years. Change RETENTION and privacy.html together. Emails with commas/semicolons are refused.
+- Content-Security-Policy meta tag in index.html, returns.html, privacy.html: only listed hosts can run scripts,
+  frames or connections (gc.zgo.at, hwcc.goatcounter.com, youtube(-nocookie), the shop api). New outside service =
+  add it there. Inline script allowed by its sha256 only: changing that one line means a new hash. Service times
+  are a JSON block (#hwcc-services), not inline JS. Pages can't send frame-ancestors/HSTS headers.
 - Tag new shop buttons for GoatCounter; shop.js already counts shop-add, shop-checkout, shop-paid.
 

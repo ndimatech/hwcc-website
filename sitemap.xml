@@ -6,6 +6,10 @@
     <loc>https://hiswordchristiancentre.co.za/</loc>
     <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
   </url>
+  <url>
+    <loc>https://hiswordchristiancentre.co.za/privacy.html</loc>
+    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
+  </url>
   {%- if site.data.shop.open %}
   <url>
     <loc>https://hiswordchristiancentre.co.za/returns.html</loc>

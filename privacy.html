@@ -1,0 +1,87 @@
+---
+# Privacy notice (14 Nov 2026). Contact details come from _data/church.yml. Keep the retention periods in step with worker/src/index.js (RETENTION).
+---
+{%- assign c = site.data.church -%}
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://hwcc.goatcounter.com; font-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; connect-src 'self' https://hwcc.goatcounter.com{% if site.data.shop.api and site.data.shop.api != '' %} {{ site.data.shop.api }}{% endif %}; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <title>Privacy notice — His Word Christian Centre</title>
+  <meta name="description" content="How His Word Christian Centre collects, uses and protects your personal information.">
+  <meta name="theme-color" content="#101B35">
+  <link rel="canonical" href="https://hiswordchristiancentre.co.za/privacy.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261114h">
+</head>
+<body class="policy-page">
+
+<header class="policy-bar">
+  <a class="policy-brand" href="/">HWCC</a>
+  <a class="policy-back" href="/">&larr; Back to the website</a>
+</header>
+
+<main class="policy" id="main">
+  <p class="eyebrow">Your information</p>
+  <h1 class="h2">Privacy notice</h1>
+
+  <p>His Word Christian Centre respects your privacy and follows the Protection of Personal Information Act (POPIA). This notice explains what we collect through this website, why, who sees it and how long we keep it.</p>
+
+  <h2>What we collect</h2>
+  <ul>
+    <li><b>When you order from the shop:</b> your name, cellphone number, email address, delivery address (if you choose delivery), any notes you add, and what you ordered.</li>
+    <li><b>When you contact us</b> by WhatsApp, phone or email: what you send us.</li>
+    <li><b>When you visit the website:</b> anonymous visit counts (which pages and buttons are used). We use GoatCounter for this; it doesn't use cookies and doesn't identify you.</li>
+  </ul>
+
+  <h2>Payments</h2>
+  <p>Card payments are made on Yoco's secure checkout. We never see or store your card details.</p>
+
+  <h2>Why we use it</h2>
+  <ul>
+    <li>To make and hand over or deliver your order, and to let you know when it's ready.</li>
+    <li>To send your receipt and answer your questions.</li>
+    <li>To keep the financial records the law requires.</li>
+  </ul>
+  <p>We don't use your details for marketing and we don't sell them.</p>
+
+  <h2>Who sees it</h2>
+  <ul>
+    <li><b>The church office</b>, to prepare your order and contact you.</li>
+    <li><b>Yoco</b>, to process your payment.</li>
+    <li><b>Cloudflare</b>, which runs our checkout and stores the order records.</li>
+    <li><b>Resend</b>, which sends the order emails.</li>
+    <li><b>Our courier</b>, with your name, number and address, if you choose delivery.</li>
+    <li><b>NdimaTech (Pty) Ltd</b>, which looks after this website for us.</li>
+  </ul>
+  <p>Cloudflare and Resend may store or process information outside South Africa (Resend in Ireland), under data protection agreements that protect it as POPIA requires.</p>
+
+  <h2>How long we keep it</h2>
+  <ul>
+    <li><b>Orders that are never paid:</b> deleted after 14 days.</li>
+    <li><b>Paid orders:</b> kept for 5 years, the period the law requires for financial records, then deleted.</li>
+    <li><b>Records of the emails we sent you:</b> deleted after 120 days.</li>
+  </ul>
+
+  <h2>Your rights</h2>
+  <p>You can ask to see, correct or delete your information, or object to how we use it. We'll delete what we can straight away; records of payments have to stay for the 5 years the law requires. If you're unhappy with how we've handled your information, you can complain to the Information Regulator (<a href="https://inforegulator.org.za" target="_blank" rel="noopener">inforegulator.org.za</a>).</p>
+
+  <h2>Cookies</h2>
+  <p>This website doesn't use tracking or advertising cookies. Your shop cart is kept in your own browser until you pay or clear it.</p>
+
+  <h2>Contact us</h2>
+  <ul>
+    <li><b>Email:</b> <a href="mailto:{{ c.email }}">{{ c.email }}</a></li>
+    <li><b>WhatsApp or call:</b> {{ c.phone }}</li>
+    <li><b>In person:</b> His Word Christian Centre, {{ c.address_line1 }}, {{ c.address_line2 }}</li>
+  </ul>
+  <p class="small">Last updated 14 November 2026.</p>
+</main>
+
+<footer class="policy-foot">
+  <p>His Word Christian Centre · <a href="/">hiswordchristiancentre.co.za</a></p>
+</footer>
+
+</body>
+</html>
