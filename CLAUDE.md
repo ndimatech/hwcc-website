@@ -66,6 +66,7 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   Mark ready/sent buttons). Collection times still to come from the church.
 - 14 Nov 2026: church approved the shop design; delivery anywhere in South Africa confirmed. Returns policy drafted
   (Claude Doc https://claude.ai/artifact/Q6yJVhNayRaeoDryX6HFWo): 7-day unworn return/exchange, 6-month faults (CPA s56),
-  refunds to card within 30 days. Awaiting church OK, then it goes on the site (ECT s43 needs it shown).
+  refunds to card within 30 days. Approved 14 Nov; live at /returns.html (noindex until the
+  shop opens), linked from the shop note, cart drawer, footer (once open) and buyer receipt. Keep returns.html and the doc in step.
 - Tag new shop buttons for GoatCounter; shop.js already counts shop-add, shop-checkout, shop-paid.
 

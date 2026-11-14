@@ -110,7 +110,7 @@
         '<div class="totals" data-totals></div>' +
         '<button type="submit" class="btn btn-dark" data-pay>Pay</button>' +
         '<p class="checkout-msg" data-checkout-msg role="status"></p>' +
-        '<p class="product-detail">Payment is by card through Yoco\'s secure checkout. Made to order: ready in about 2 weeks.</p>' +
+        '<p class="product-detail">Payment is by card through Yoco\'s secure checkout. Made to order: ready in about 2 weeks. <a href="returns.html" target="_blank" rel="noopener">Returns and refunds</a></p>' +
       '</form>' +
     '</div>';
   document.body.appendChild(drawer);

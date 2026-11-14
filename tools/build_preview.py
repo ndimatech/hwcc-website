@@ -29,8 +29,8 @@ def load_site():
     return site
 
 
-def render(site):
-    src = (ROOT / "index.html").read_text(encoding="utf-8")
+def render(site, page="index.html"):
+    src = (ROOT / page).read_text(encoding="utf-8")
     src = re.sub(r"\A---\n.*?\n---\n", "", src, count=1, flags=re.S)  # strip front matter
     return Environment().from_string(src).render(site=site)
 
@@ -66,6 +66,8 @@ def main():
         shutil.rmtree(out)
     out.mkdir()
     (out / "index.html").write_text(html, encoding="utf-8")
+    if (ROOT / "returns.html").exists():
+        (out / "returns.html").write_text(render(site, "returns.html"), encoding="utf-8")
     shutil.copytree(ROOT / "assets", out / "assets")
     shutil.copy(ROOT / "favicon.svg", out / "favicon.svg")
     target = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "HWCC-homepage-preview.html"

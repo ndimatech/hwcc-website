@@ -1,0 +1,95 @@
+---
+# Shop returns and refunds policy (approved 14 Nov 2026). Contact details come from _data/church.yml.
+---
+{%- assign c = site.data.church -%}
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Returns and refunds — His Word Christian Centre shop</title>
+  <meta name="description" content="Returns, exchanges and refunds for the His Word Christian Centre online shop.">
+  <meta name="theme-color" content="#101B35">
+  {%- unless site.data.shop.open %}
+  <meta name="robots" content="noindex, nofollow">
+  {%- endunless %}
+  <link rel="canonical" href="https://hiswordchristiancentre.co.za/returns.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261114c">
+</head>
+<body class="policy-page">
+
+<header class="policy-bar">
+  <a class="policy-brand" href="/#shop">HWCC</a>
+  <a class="policy-back" href="/#shop">&larr; Back to the shop</a>
+</header>
+
+<main class="policy" id="main">
+  <p class="eyebrow">Shop</p>
+  <h1 class="h2">Returns and refunds</h1>
+
+  <p>This policy covers everything bought from the His Word Christian Centre online shop (T-shirts, sweaters and hoodies), whether collected at church or delivered anywhere in South Africa.</p>
+  <p>Every item is made to order in the size and colour you choose, so please check your size before ordering. Nothing in this policy takes away your rights under the Consumer Protection Act or the Electronic Communications and Transactions Act.</p>
+
+  <h2>1. Check your order when you receive it</h2>
+  <p>Please check your items when you collect them or when the courier delivers them.</p>
+  <ul>
+    <li>If we sent the wrong item, size, colour or print, or the order doesn't match what you paid for, you may refuse it or return it. We will replace it or give you a full refund, at our cost.</li>
+    <li>Please tell us within <b>7 days</b> of receiving it, with your order number (for example HWCC-1001) and a photo.</li>
+  </ul>
+
+  <h2>2. Faulty items: up to 6 months</h2>
+  <p>If an item has a defect (for example a seam that comes apart, a print that peels or cracks, or a hole in the fabric) within <b>6 months</b> of receiving it, return it to us. You choose whether we repair it, replace it or refund you, and we cover the cost, including courier costs.</p>
+  <p>This does not cover normal wear and tear, damage from not following the care label (for example ironing directly on the print or tumble-drying on high heat), or accidental damage after you received it.</p>
+
+  <h2>3. Wrong size or changed your mind: 7 days</h2>
+  <p>You may return an item within <b>7 days</b> of receiving it if it doesn't fit or you've changed your mind, as long as it is <b>unworn, unwashed and undamaged</b>, in its original packaging where possible.</p>
+  <ul>
+    <li><b>Exchange:</b> we make the new size or colour for you. Because items are made to order, allow about 2 weeks.</li>
+    <li><b>Refund:</b> we refund the full amount you paid for the item. If you return the whole order, we also refund the original delivery fee.</li>
+    <li><b>Returning it:</b> bringing it to church costs nothing. If you courier it back, you pay that courier cost.</li>
+    <li><b>Sending the exchange to you:</b> if your order was delivered, we courier the replacement at no extra charge.</li>
+  </ul>
+
+  <h2>4. Cancelling an order</h2>
+  <p>Contact us as soon as possible with your order number. If we have not started making your items, we cancel the order and refund you in full, including delivery. If production has already started, you can still return the items once you receive them under section 3.</p>
+
+  <h2>5. Delivery problems</h2>
+  <ul>
+    <li><b>Damaged in transit:</b> tell us within <b>48 hours</b> of delivery, with photos of the parcel and the items. We will replace them or refund you.</li>
+    <li><b>Not arrived:</b> if your parcel has not arrived within 7 working days of us telling you it was sent, contact us. We follow it up with the courier, and if it is lost we replace the items or refund you in full.</li>
+    <li><b>Wrong address:</b> please check your address at checkout. If a parcel is returned to us because the address was wrong or nobody collected it, we can send it again for a second delivery fee.</li>
+  </ul>
+
+  <h2>6. What we can't accept</h2>
+  <p>For a wrong-size or change-of-mind return (section 3), we can't accept items that:</p>
+  <ul>
+    <li>have been worn, washed or damaged;</li>
+    <li>have been altered, printed on or otherwise changed after delivery;</li>
+    <li>reach us more than 7 days after you received them.</li>
+  </ul>
+  <p>The pictures in the shop are design previews. A slight difference in colour between the picture and the real garment is not a defect. A clearly different colour, print or garment is a wrong item under section 1.</p>
+
+  <h2>7. How to return, and how refunds work</h2>
+  <ol>
+    <li><b>Contact us first</b> (details below) with your order number, what's wrong and, for faults or damage, a photo.</li>
+    <li><b>Bring the item to church</b>, or courier it to: His Word Christian Centre, {{ c.address_line1 }}, {{ c.address_line2 }}. Write your order number on or inside the parcel, and keep your proof of sending.</li>
+    <li><b>We check it</b> and confirm by WhatsApp or email.</li>
+  </ol>
+  <p><b>Refunds</b> go back to the card you paid with, through our payment provider Yoco, within <b>30 days</b> of us receiving the item (we aim for 10 working days). Your bank may take a few more days to show it. We can't refund in cash.</p>
+
+  <h2>8. Contact us</h2>
+  <ul>
+    <li><b>WhatsApp or call:</b> {{ c.phone }}</li>
+    <li><b>Email:</b> <a href="mailto:{{ c.email }}">{{ c.email }}</a> (or reply to your order receipt)</li>
+    <li><b>In person:</b> His Word Christian Centre, {{ c.address_line1 }}, {{ c.address_line2 }}</li>
+  </ul>
+  <p>Please always give your order number.</p>
+</main>
+
+<footer class="policy-foot">
+  <p>His Word Christian Centre · <a href="/">hiswordchristiancentre.co.za</a></p>
+</footer>
+
+</body>
+</html>
