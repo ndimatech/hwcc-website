@@ -79,6 +79,7 @@
       <li><a href="#ministries">Ministries</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#give">Give</a></li>
+      {%- if site.data.shop.open %}<li><a href="#shop">Shop</a></li>{% endif %}
     </ul>
     <div class="nav-cta">
       <a class="live" data-goatcounter-click="watch-online" data-goatcounter-title="Watch online / live button" href="{{ c.youtube }}" target="_blank" rel="noopener" data-live data-live-href="{{ c.livestream }}" data-online-href="{{ c.youtube }}"><span class="dot" aria-hidden="true"></span><span data-live-label>Watch online</span></a>
@@ -102,6 +103,7 @@
     <li><a href="#ministries">Ministries</a></li>
     <li><a href="#events">Events</a></li>
     <li><a href="#give">Give</a></li>
+    {%- if site.data.shop.open %}<li><a href="#shop">Shop</a></li>{% endif %}
   </ul>
   <div class="mm-foot">
     <a class="btn btn-light" data-goatcounter-click="plan-a-visit" href="#visit">Plan a visit</a>
@@ -400,6 +402,60 @@
   </div>
 </section>
 
+<!-- ================= SHOP ================= -->
+{%- assign shop = site.data.shop %}
+{%- if shop.open %}
+<section class="sec sec-paper" id="shop" aria-labelledby="shop-h" data-shop data-api="{{ shop.api }}" data-delivery="{{ shop.deliveryCents }}">
+  <div class="wrap rail">
+    <p class="eyebrow rail-label">Shop</p>
+    <div class="rail-body">
+      <div class="shop-head">
+        <h2 id="shop-h" class="h2" data-reveal>Wear His Word.</h2>
+        <p class="lead max-42">{{ shop.leadTime }} Collect at church, or have it delivered for R{{ shop.deliveryCents | divided_by: 100 }}.</p>
+      </div>
+      <div class="shop-filter" role="group" aria-label="Show">
+        <button type="button" class="chip is-on" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="chip" data-filter="T-shirt" aria-pressed="false">T-shirts</button>
+        <button type="button" class="chip" data-filter="Hoodie" aria-pressed="false">Hoodies</button>
+        <button type="button" class="chip" data-filter="Sweater" aria-pressed="false">Sweaters</button>
+      </div>
+      <ul class="shop-grid">
+        {%- for p in shop.products %}
+        {%- assign first = p.colours | first %}
+        <li class="product" data-product="{{ p.id }}" data-kind="{{ p.kind }}" data-name="{{ p.name }}" data-price="{{ p.priceCents }}">
+          <div class="product-img"><img src="{{ first.image }}" alt="{{ p.name }}, {{ first.name }}" width="1000" height="750" loading="lazy" data-product-img></div>
+          <div class="product-body">
+            <p class="product-meta"><span>{{ p.kind }}</span><span class="product-price">R{{ p.priceCents | divided_by: 100 }}</span></p>
+            <h3 class="product-name">{{ p.name }}</h3>
+            <p class="product-detail">{{ p.detail }}</p>
+            <fieldset class="opt">
+              <legend>Colour: <span data-colour-name>{{ first.name }}</span></legend>
+              <div class="swatches">
+                {%- for col in p.colours %}
+                <label class="swatch" title="{{ col.name }}"><input type="radio" name="{{ p.id }}-colour" value="{{ col.id }}" data-img="{{ col.image }}" data-label="{{ col.name }}"{% if forloop.first %} checked{% endif %}><span style="--g: {{ col.garment }}; --i: {{ col.ink }}"></span><span class="sr">{{ col.name }}</span></label>
+                {%- endfor %}
+              </div>
+            </fieldset>
+            <fieldset class="opt">
+              <legend>Size</legend>
+              <div class="sizes">
+                {%- for sz in p.sizes %}
+                <label class="size"><input type="radio" name="{{ p.id }}-size" value="{{ sz }}"><span>{{ sz }}</span></label>
+                {%- endfor %}
+              </div>
+            </fieldset>
+            <button type="button" class="btn btn-dark product-add" data-add>Add to cart</button>
+            <p class="product-msg" data-msg role="status"></p>
+          </div>
+        </li>
+        {%- endfor %}
+      </ul>
+      <p class="shop-note">Images are design previews; colours may look slightly different on the real garment.</p>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
 </main>
 
 <!-- ================= FOOTER ================= -->
@@ -454,6 +510,9 @@
 </footer>
 
 <script src="assets/js/main.js" defer></script>
+{%- if site.data.shop.open %}
+<script src="assets/js/shop.js" defer></script>
+{%- endif %}
 <script data-goatcounter="https://hwcc.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

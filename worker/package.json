@@ -1,0 +1,12 @@
+{
+  "name": "hwcc-shop",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --var ALLOW_MOCK_PAYMENTS:1 --var SITE_URL:http://localhost:8741 --var EXTRA_ORIGINS:http://localhost:8741",
+    "migrate:local": "wrangler d1 migrations apply hwcc-shop --local",
+    "deploy": "wrangler d1 migrations apply hwcc-shop --remote && wrangler deploy",
+    "test": "node --test test/*.test.js"
+  },
+  "devDependencies": { "wrangler": "^4" }
+}

@@ -37,3 +37,18 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   watch-online / watch-live (set by main.js during service times), sermon: <title>, social-*, give-online, event-more-info: <name>).
   Tag any new important button the same way. count.js ignores localhost and file:// previews.
 
+## Shop (merchandise, built Nov 2026; full price R11,000, care plan +R200/month)
+- Catalogue: `_data/shop.json` (6 items, 34 colourways; T-shirt R250 S–4XL, sweater R400 and hoodie R450 S–2XL).
+  Made to order, about 2 weeks. Collect at church free, or flat delivery R149 (South Africa; church's choice 14 Nov 2026).
+  The site and the checkout BOTH read this file; prices in cents. `"open": false` hides the shop, empty `"api"` = "opens soon".
+- Front-end: Shop section in index.html (cards rendered by Liquid), `assets/js/shop.js` (cart in localStorage, drawer,
+  POST to the worker, return banner via `?order=<id>`). Images `assets/img/shop/` cropped from the church's AI mock-ups.
+- Checkout: `worker/` = Cloudflare Worker `hwcc-shop` in the CHURCH's Cloudflare account (Mubarak creates it), D1 `hwcc-shop`,
+  Yoco Checkout API (code adapted from malhaya-website/src/yoco.js), signed webhook is the only proof of payment,
+  events claimed once, wrong amount = automatic full refund + alert. Order numbers HWCC-1001 upwards.
+  Emails via Resend: alerts to ORDER_EMAIL (admin@), buyer receipts only once MAIL_FROM is on a verified domain.
+  Resend DNS records go on resend._domainkey + send subdomain only; never touch the main MX/SPF.
+- Mock payments only with `--var ALLOW_MOCK_PAYMENTS:1` (local). Never in wrangler.toml.
+- Setup steps for Mubarak: SHOP-SETUP.md. Tests: `cd worker && npm test`; local e2e: wrangler dev + preview with data-api.
+- Tag new shop buttons for GoatCounter; shop.js already counts shop-add, shop-checkout, shop-paid.
+

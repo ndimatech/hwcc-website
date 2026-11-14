@@ -3,3 +3,7 @@ _site/
 _preview/
 HWCC-homepage-preview.html
 .DS_Store
+
+# Shop checkout (worker)
+worker/node_modules/
+worker/.wrangler/

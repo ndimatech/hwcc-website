@@ -11,7 +11,7 @@ Writes:
 GitHub Pages builds the real site with Jekyll; this script mirrors what Jekyll
 does for this page (site.data, site.time, site.preview) closely enough to preview it.
 """
-import base64, datetime as dt, pathlib, re, shutil, sys, zoneinfo
+import base64, json, datetime as dt, pathlib, re, shutil, sys, zoneinfo
 import yaml
 from liquid import Environment
 
@@ -20,6 +20,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 def load_site():
     data = {p.stem: yaml.safe_load(p.read_text(encoding="utf-8")) for p in sorted((ROOT / "_data").glob("*.yml"))}
+    data.update({p.stem: json.loads(p.read_text(encoding="utf-8")) for p in sorted((ROOT / "_data").glob("*.json"))})
     config = yaml.safe_load((ROOT / "_config.yml").read_text(encoding="utf-8")) or {}
     tz = zoneinfo.ZoneInfo(config.get("timezone", "Africa/Johannesburg"))
     site = dict(config)
@@ -44,6 +45,8 @@ def inline(html):
     html = re.sub(r'\s*<link rel="preload"[^>]*>', "", html)
     html = html.replace('<link rel="stylesheet" href="assets/css/style.css">', "<style>\n" + css + "\n</style>")
     html = html.replace('<script src="assets/js/main.js" defer></script>', "<script>\n" + js + "\n</script>")
+    if (ROOT / "assets/js/shop.js").exists():
+        html = html.replace('<script src="assets/js/shop.js" defer></script>', "<script>\n" + (ROOT / "assets/js/shop.js").read_text(encoding="utf-8") + "\n</script>")
     html = re.sub(r'(src|content|data-img)="(assets/img/[^"]+\.(webp|jpg|png))"',
                   lambda m: f'{m.group(1)}="{b64(m.group(2), "image/" + ("jpeg" if m.group(3) == "jpg" else m.group(3)))}"', html)
     html = html.replace('<link rel="icon" href="favicon.svg" type="image/svg+xml">',

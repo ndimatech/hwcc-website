@@ -18,6 +18,9 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - HWCC-homepage-preview.html
+  - worker
+  - SHOP-SETUP.md
+  - node_modules
 
 # Publish the .well-known folder (Jekyll skips dot-folders by default)
 include:
