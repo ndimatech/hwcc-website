@@ -8,7 +8,7 @@ workers_dev = true
 [[d1_databases]]
 binding = "DB"
 database_name = "hwcc-shop"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"   # from Cloudflare: Storage & Databases > D1 > hwcc-shop
+database_id = "287e15a1-deb0-4550-8020-2b2ddb434717"   # church account, created 14 Nov 2026
 migrations_dir = "migrations"
 
 # Per-visitor limit on starting checkouts (generous: many phones share an IP).
