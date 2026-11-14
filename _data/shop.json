@@ -1,6 +1,6 @@
 {
   "_note": "Merchandise catalogue. The website AND the checkout read this file, so a price changed here changes what customers pay. Prices in cents (R250 = 25000).",
-  "open": true,
+  "open": false,
   "api": "",
   "deliveryCents": 14900,
   "leadTime": "Made to order. Ready in about 2 weeks.",
