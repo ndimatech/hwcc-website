@@ -8,7 +8,7 @@ export const MAX_LINES = 30;
 export const PROVINCES = ["Gauteng", "Eastern Cape", "Free State", "KwaZulu-Natal", "Limpopo", "Mpumalanga", "North West", "Northern Cape", "Western Cape"];
 
 export function priceOrder(items, fulfilment, shop = SHOP) {
-  if (!shop.open) return { error: "shop_closed" };
+  if (!shop.open && !shop.test) return { error: "shop_closed" };   // test: hidden ?shoptest=1 mode before launch
   if (!Array.isArray(items) || items.length === 0) return { error: "empty_cart" };
   if (items.length > MAX_LINES) return { error: "too_many_lines" };
   if (fulfilment !== "collect" && fulfilment !== "deliver") return { error: "invalid_fulfilment" };

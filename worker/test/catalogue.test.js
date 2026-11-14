@@ -22,7 +22,8 @@ test("rejects unknown colour, size not offered, bad qty, bad fulfilment", () => 
   assert.equal(priceOrder([], "collect").error, "empty_cart");
 });
 test("closed shop refuses orders", () => {
-  assert.equal(priceOrder([{ productId: "tee-cross", colourId: "black-white", size: "M", qty: 1 }], "collect", { ...SHOP, open: false }).error, "shop_closed");
+  assert.equal(priceOrder([{ productId: "tee-cross", colourId: "black-white", size: "M", qty: 1 }], "collect", { ...SHOP, open: false, test: false }).error, "shop_closed");
+  assert.equal(priceOrder([{ productId: "tee-cross", colourId: "black-white", size: "M", qty: 1 }], "collect", { ...SHOP, open: false, test: true }).error, undefined);
 });
 test("every catalogue image and size list is sane", () => {
   for (const p of SHOP.products) {
