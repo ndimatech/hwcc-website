@@ -52,7 +52,9 @@ UPDATING.md is the human guide. Keep it in step with any change to the data form
   Resend DNS records go on resend._domainkey + send subdomain only; never touch the main MX/SPF.
 - 14 Nov 2026: Yoco TEST key + webhook set; first real test-card payment via /?shoptest=1 confirmed paid by webhook (HWCC-1002;
   1001 was an unpaid attempt). Test orders share the live D1. Resend alert email to admin@ works (HWCC-1003).
-  Still to do: Resend domain + MAIL_FROM, live key + webhook, small live buy + refund, CLEAR TEST ORDERS (Mubarak asked;
+  Resend domain verified 14 Nov (records: TXT resend._domainkey,
+  CNAME rsend + send → *.forge.rmta.net; existing _dmarc p=none); MAIL_FROM shop@, REPLY_TO admin@.
+  Still to do: live key + webhook, small live buy + refund, CLEAR TEST ORDERS (Mubarak asked;
   SHOP-SETUP 5.3), then open.
   Cloudflare Workers Builds lost its GitHub link once (fixed by reconnecting); the D1 is `hwcc-shop`, the Worker `hwcc-website`.
 - Mock payments only with `--var ALLOW_MOCK_PAYMENTS:1` (local). Never in wrangler.toml.

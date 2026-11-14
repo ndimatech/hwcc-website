@@ -50,7 +50,7 @@ Do these in order. Never paste keys into chat, email or GitHub: they go into Clo
 4. Test on https://hiswordchristiancentre.co.za/?shoptest=1 with Yoco's test card: pay, check the "Thank you" banner
    and the order email.
 
-## 4. Order emails (Resend)
+## 4. Order emails (Resend) (done 14 Nov 2026: domain verified, eu-west-1)
 1. Sign up at resend.com with **admin@hiswordchristiancentre.co.za**. Create an API key and add it as a Secret
    named `RESEND_API_KEY`.
 2. From then on, new-order emails reach admin@ (Resend's test sender only delivers to the account's own address).
