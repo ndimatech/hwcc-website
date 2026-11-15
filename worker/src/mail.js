@@ -19,7 +19,7 @@ function addressText(o) {
 function totalsText(o) {
   return [
     `Items: ${R(o.subtotal_cents)}`,
-    o.delivery_cents ? `Delivery: ${R(o.delivery_cents)}` : "Collect At Church: free",
+    o.fulfilment === "deliver" ? `Delivery: ${o.delivery_cents ? R(o.delivery_cents) : "free"}` : "Collect At Church: free",
     `Total paid: ${R(o.total_cents)}`,
   ];
 }

@@ -21,6 +21,8 @@
   }
   var API = (shop.getAttribute('data-api') || '').replace(/\/$/, '');
   var DELIVERY = Number(shop.getAttribute('data-delivery')) || 0;
+  var FREE_OVER = Number(shop.getAttribute('data-free-over')) || 0;   // free delivery when the items total is above this
+  function deliveryFee(sub) { return FREE_OVER && sub > FREE_OVER ? 0 : DELIVERY; }
   var TS_KEY = shop.getAttribute('data-turnstile') || '';
 
   // ---- Bot check (Cloudflare Turnstile): usually invisible; a box appears only when Cloudflare is unsure ----
@@ -113,7 +115,7 @@
       '<form class="form-grid" data-checkout novalidate>' +
         '<fieldset class="opt form-grid"><legend>How would you like to get it?</legend>' +
           '<label class="choice"><input type="radio" name="fulfilment" value="collect" checked><span><b>Collect At Church</b>Free. We\'ll let you know when it\'s ready.</span></label>' +
-          '<label class="choice"><input type="radio" name="fulfilment" value="deliver"><span><b>Delivery, ' + R(DELIVERY) + '</b>Sent by courier once it\'s ready.</span></label>' +
+          '<label class="choice"><input type="radio" name="fulfilment" value="deliver"><span><b data-deliver-label>Delivery, ' + R(DELIVERY) + '</b>Sent by courier once it\'s ready.' + (FREE_OVER ? ' Free for orders above ' + R(FREE_OVER) + '.' : '') + '</span></label>' +
         '</fieldset>' +
         '<label class="field">Full name<input name="name" autocomplete="name" required maxlength="80"></label>' +
         '<label class="field">Cellphone (WhatsApp)<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="e.g. 082 123 4567"></label>' +
@@ -182,9 +184,11 @@
         '<button type="button" data-i="' + i + '" data-act="plus" aria-label="One more">+</button></div></div>' +
         '<div class="line-end">' + R(p.price * l.q) + '<button type="button" class="line-remove" data-i="' + i + '" data-act="remove">Remove</button></div></li>';
     }).join('');
-    var sub = subtotal(c), del = deliveryOn() ? DELIVERY : 0;
+    var sub = subtotal(c), del = deliveryOn() ? deliveryFee(sub) : 0;
+    var dl = drawer.querySelector('[data-deliver-label]');
+    if (dl) dl.textContent = 'Delivery, ' + (deliveryFee(sub) ? R(DELIVERY) : 'free');
     totals.innerHTML = '<span>Items</span><span>' + R(sub) + '</span>' +
-      '<span>' + (del ? 'Delivery' : 'Collect At Church') + '</span><span>' + (del ? R(del) : 'Free') + '</span>' +
+      '<span>' + (deliveryOn() ? 'Delivery' : 'Collect At Church') + '</span><span>' + (del ? R(del) : 'Free') + '</span>' +
       '<span class="grand">Total</span><span class="grand">' + R(sub + del) + '</span>';
     payBtn.textContent = 'Pay ' + R(sub + del);
   }

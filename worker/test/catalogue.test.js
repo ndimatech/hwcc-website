@@ -4,10 +4,10 @@ import { priceOrder, checkCustomer, SHOP } from "../src/catalogue.js";
 import { signWebhook, verifyWebhook, MOCK_WEBHOOK_SECRET } from "../src/yoco.js";
 
 test("prices come from the catalogue, not the browser", () => {
-  const r = priceOrder([{ productId: "hoodie-elihle", colourId: "cream-maroon", size: "L", qty: 2, priceCents: 1 }], "deliver");
-  assert.equal(r.subtotalCents, 90000);
+  const r = priceOrder([{ productId: "hoodie-elihle", colourId: "cream-maroon", size: "L", qty: 1, priceCents: 1 }], "deliver");
+  assert.equal(r.subtotalCents, 45000);
   assert.equal(r.deliveryCents, 14900);
-  assert.equal(r.totalCents, 104900);
+  assert.equal(r.totalCents, 59900);
 });
 test("collect is free; tee + sweater", () => {
   const r = priceOrder([{ productId: "tee-cross", colourId: "black-white", size: "4XL", qty: 1 }, { productId: "sweater-cross", colourId: "white-gold", size: "S", qty: 1 }], "collect");
@@ -63,4 +63,12 @@ test("email: one address only, commas and semicolons refused", () => {
   assert.equal(checkCustomer({ ...base, email: "thandi@gmail.com" }).error, undefined);
   assert.equal(checkCustomer({ ...base, email: "thandi@gmail.com,x" }).error, "invalid_email");
   assert.equal(checkCustomer({ ...base, email: "thandi@gmail.com;y@z.co" }).error, "invalid_email");
+});
+
+test("free delivery only when the items total is above R750", () => {
+  const tee = (qty) => [{ productId: "tee-cross", colourId: "black-white", size: "M", qty }];
+  assert.equal(priceOrder(tee(3), "deliver", SHOP).deliveryCents, 14900);   // R750 exactly: not above
+  assert.equal(priceOrder(tee(4), "deliver", SHOP).deliveryCents, 0);       // R1,000
+  assert.equal(priceOrder(tee(4), "deliver", SHOP).totalCents, 100000);
+  assert.equal(priceOrder(tee(1), "collect", SHOP).deliveryCents, 0);
 });

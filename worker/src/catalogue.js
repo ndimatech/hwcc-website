@@ -28,7 +28,9 @@ export function priceOrder(items, fulfilment, shop = SHOP) {
     });
   }
   const subtotalCents = lines.reduce((s, l) => s + l.lineCents, 0);
-  const deliveryCents = fulfilment === "deliver" ? shop.deliveryCents : 0;
+  // Free delivery when the items total is above freeDeliveryOverCents (R750 from 15 Nov 2026).
+  const free = shop.freeDeliveryOverCents && subtotalCents > shop.freeDeliveryOverCents;
+  const deliveryCents = fulfilment === "deliver" && !free ? shop.deliveryCents : 0;
   return { lines, subtotalCents, deliveryCents, totalCents: subtotalCents + deliveryCents };
 }
 

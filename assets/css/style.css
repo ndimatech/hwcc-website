@@ -421,3 +421,5 @@ body.drawer-open { overflow: hidden; }
 
 .botcheck:empty { display: none; }
 .botcheck { margin: 4px 0; }
+
+.shop-sub { margin-top: 6px; font-weight: 600; color: var(--wine); }
