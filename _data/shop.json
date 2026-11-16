@@ -4,8 +4,8 @@
   "test": false,
   "api": "https://hwcc-website.round-paper-0c18.workers.dev",
   "turnstileSiteKey": "0x4AAAAAAGA7B5Wn2KGZtyXc",
-  "deliveryCents": 14900,
-  "freeDeliveryOverCents": 75000,
+  "deliveryCents": 9900,
+  "freeDeliveryFromCents": 75000,
   "leadTime": "Made to order. Ready in 2 weeks.",
   "products": [
     {

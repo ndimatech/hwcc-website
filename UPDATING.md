@@ -115,7 +115,7 @@ WhatsApp or social-media copies.
 ## Shop
 
 Products live in `_data/shop.json`. **The checkout charges whatever this file says**, so check prices carefully.
-- Prices are in cents: R250 is `25000`, the delivery fee R149 is `14900`.
+- Prices are in cents: R250 is `25000`, the delivery fee R99 is `9900`. `freeDeliveryFromCents` (`75000` = R750) makes delivery free from that items total up.
 - To hide the whole shop: `"open": false`.
 - Each colour needs a photo in `assets/img/shop/` (4:3, about 1000 × 750) and its `image` path in the file.
 - JSON is strict: keep the quotes and commas exactly like the lines around your change.

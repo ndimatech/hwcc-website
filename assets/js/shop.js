@@ -21,8 +21,8 @@
   }
   var API = (shop.getAttribute('data-api') || '').replace(/\/$/, '');
   var DELIVERY = Number(shop.getAttribute('data-delivery')) || 0;
-  var FREE_OVER = Number(shop.getAttribute('data-free-over')) || 0;   // free delivery when the items total is above this
-  function deliveryFee(sub) { return FREE_OVER && sub > FREE_OVER ? 0 : DELIVERY; }
+  var FREE_FROM = Number(shop.getAttribute('data-free-from')) || 0;   // free delivery when the items total is this or more
+  function deliveryFee(sub) { return FREE_FROM && sub >= FREE_FROM ? 0 : DELIVERY; }
   var TS_KEY = shop.getAttribute('data-turnstile') || '';
 
   // ---- Bot check (Cloudflare Turnstile): usually invisible; a box appears only when Cloudflare is unsure ----
@@ -115,7 +115,7 @@
       '<form class="form-grid" data-checkout novalidate>' +
         '<fieldset class="opt form-grid"><legend>How would you like to get it?</legend>' +
           '<label class="choice"><input type="radio" name="fulfilment" value="collect" checked><span><b>Collect At Church</b>Free. We\'ll let you know when it\'s ready.</span></label>' +
-          '<label class="choice"><input type="radio" name="fulfilment" value="deliver"><span><b data-deliver-label>Delivery, ' + R(DELIVERY) + '</b>Sent by courier once it\'s ready.' + (FREE_OVER ? ' Free for orders above ' + R(FREE_OVER) + '.' : '') + '</span></label>' +
+          '<label class="choice"><input type="radio" name="fulfilment" value="deliver"><span><b data-deliver-label>Delivery, ' + R(DELIVERY) + '</b>Sent by courier once it\'s ready.' + (FREE_FROM ? ' Free on orders of ' + R(FREE_FROM) + ' and above.' : '') + '</span></label>' +
         '</fieldset>' +
         '<label class="field">Full name<input name="name" autocomplete="name" required maxlength="80"></label>' +
         '<label class="field">Cellphone (WhatsApp)<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="e.g. 082 123 4567"></label>' +
